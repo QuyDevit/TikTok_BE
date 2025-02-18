@@ -1,0 +1,12 @@
+D:\Project\TiktokBackend.API\TiktokBackend.Domain\bin\Debug\net8.0\TiktokBackend.Domain.deps.json
+D:\Project\TiktokBackend.API\TiktokBackend.Domain\bin\Debug\net8.0\TiktokBackend.Domain.dll
+D:\Project\TiktokBackend.API\TiktokBackend.Domain\bin\Debug\net8.0\TiktokBackend.Domain.pdb
+D:\Project\TiktokBackend.API\TiktokBackend.Domain\obj\Debug\net8.0\TiktokBackend.Domain.csproj.AssemblyReference.cache
+D:\Project\TiktokBackend.API\TiktokBackend.Domain\obj\Debug\net8.0\TiktokBackend.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\TiktokBackend.API\TiktokBackend.Domain\obj\Debug\net8.0\TiktokBackend.Domain.AssemblyInfoInputs.cache
+D:\Project\TiktokBackend.API\TiktokBackend.Domain\obj\Debug\net8.0\TiktokBackend.Domain.AssemblyInfo.cs
+D:\Project\TiktokBackend.API\TiktokBackend.Domain\obj\Debug\net8.0\TiktokBackend.Domain.csproj.CoreCompileInputs.cache
+D:\Project\TiktokBackend.API\TiktokBackend.Domain\obj\Debug\net8.0\TiktokBackend.Domain.dll
+D:\Project\TiktokBackend.API\TiktokBackend.Domain\obj\Debug\net8.0\refint\TiktokBackend.Domain.dll
+D:\Project\TiktokBackend.API\TiktokBackend.Domain\obj\Debug\net8.0\TiktokBackend.Domain.pdb
+D:\Project\TiktokBackend.API\TiktokBackend.Domain\obj\Debug\net8.0\ref\TiktokBackend.Domain.dll

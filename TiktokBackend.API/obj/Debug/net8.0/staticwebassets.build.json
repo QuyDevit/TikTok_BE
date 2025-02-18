@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "RH0sWfKgpzFKhPyJA7hTt3BXy/RnJ73k7VpIrkXBXts=",
+  "Source": "TiktokBackend.API",
+  "BasePath": "_content/TiktokBackend.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

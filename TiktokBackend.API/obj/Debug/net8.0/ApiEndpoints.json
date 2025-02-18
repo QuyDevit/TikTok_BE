@@ -1,0 +1,66 @@
+[
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.ApiKeyController",
+    "Method": "AddApiKeyAsync",
+    "RelativePath": "api/ApiKey",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.AuthController",
+    "Method": "RegisterWithOtpAsync",
+    "RelativePath": "api/Auth/register/otp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestOtp",
+        "Type": "TiktokBackend.Application.Payloads.RegisterRequest\u002BRequestOtp",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.AuthController",
+    "Method": "RegisterUserAsync",
+    "RelativePath": "api/Auth/register/user",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerUser",
+        "Type": "TiktokBackend.Application.Payloads.RegisterRequest\u002BRegisterUser",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.UserController",
+    "Method": "AddUserAsync",
+    "RelativePath": "api/User",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "TiktokBackend.Domain.Entities.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
