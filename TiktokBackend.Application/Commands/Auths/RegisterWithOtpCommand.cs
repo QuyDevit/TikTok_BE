@@ -7,44 +7,53 @@ using TiktokBackend.Domain.Interfaces;
 
 namespace TiktokBackend.Application.Commands.Auths
 {
-    public record RegisterWithOtpCommand(RegisterRequest.RequestOtp RequestOtp) : IRequest<ServiceResponse<bool>>;
-    public class RegisterWithOtpCommandHandler : IRequestHandler<RegisterWithOtpCommand, ServiceResponse<bool>>
+    public record RegisterWithOtpCommand(RegisterRequest.RequestOtp RequestOtp) : IRequest<ServiceResponse<string>>;
+    public class RegisterWithOtpCommandHandler : IRequestHandler<RegisterWithOtpCommand, ServiceResponse<string>>
     {
         private readonly IUserRepository _userRepository;
         private readonly IEmailService _emailService;
         private readonly IRedisService _redisService;
-        public RegisterWithOtpCommandHandler(IRedisService redisService, IUserRepository userRepository,IEmailService emailService) {
+        private readonly IEmailTemplateService _emailTemplateService;
+        public RegisterWithOtpCommandHandler(IRedisService redisService, IUserRepository userRepository
+            ,IEmailService emailService, IEmailTemplateService emailTemplateService)
+        {
             _userRepository = userRepository;
             _emailService = emailService;
             _redisService = redisService;
+            _emailTemplateService = emailTemplateService;
         }
-        public async Task<ServiceResponse<bool>> Handle(RegisterWithOtpCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<string>> Handle(RegisterWithOtpCommand request, CancellationToken cancellationToken)
         {
             var req = request.RequestOtp;
             var validationResult = RegisterRequestValidator.ValidateOtp(req);
             if (!validationResult.Success)
-                return ServiceResponse<bool>.Fail(validationResult.Message);
+                return ServiceResponse<string>.Fail(validationResult.Message);
 
             if (req.Type == "email")
             {
                 if (await _userRepository.GetUserByEmailAsync(req.Email) is not null)
-                    return ServiceResponse<bool>.Fail("Email đã tồn tại. Hãy sử dụng email khác.");
+                    return ServiceResponse<string>.Fail("Email đã tồn tại. Hãy sử dụng email khác.");
             }  
             if (req.Type == "phone" && await _userRepository.GetUserByPhoneAsync(req.PhoneNumber) is not null)
-                return ServiceResponse<bool>.Fail("Số điện thoại đã tồn tại. Hãy sử dụng số khác.");
+                return ServiceResponse<string>.Fail("Số điện thoại đã tồn tại. Hãy sử dụng số khác.");
 
             var otp = new Random().Next(100000, 999999).ToString();
       
             if (req.Type == "email")
             {
-                var isSuccess = await _emailService.SendEmailAsync(req.Email, "Mã xác thực đăng ký tài khoản!", otp);
-                if (!isSuccess) return ServiceResponse<bool>.Fail("Không thể gửi email!");
+                var placeholders = new Dictionary<string, string>
+                {
+                    { "OTP_CODE", otp }
+                };
+                var template = await _emailTemplateService.GetEmailTemplateAsync("SendOtpMail", placeholders);
+                var isSuccess = await _emailService.SendEmailAsync(req.Email, "Mã xác thực đăng ký tài khoản!", template);
+                if (!isSuccess) return ServiceResponse<string>.Fail("Không thể gửi email!");
             }
 
             string key = $"otp:{req.Type}:{req.Email ?? req.PhoneNumber}";
             await _redisService.SetAsync(key, otp, 300);
 
-            return ServiceResponse<bool>.Ok(true, "Đã gửi mã xác thực. Vui lòng kiểm tra!");
+            return ServiceResponse<string>.Ok(req.Type == "email" ? "" : otp, "Đã gửi mã xác thực. Vui lòng kiểm tra!");
         }
     }
 }

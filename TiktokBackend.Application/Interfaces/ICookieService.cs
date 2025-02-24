@@ -4,5 +4,7 @@
     {
         void SetAccessToken(string token);
         void SetRefreshToken(string token);
+        void ClearCookie();
+        string? GetRefreshToken();
     }
 }

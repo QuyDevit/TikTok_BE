@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using TiktokBackend.Application.Common;
 using TiktokBackend.Application.Interfaces;
 using TiktokBackend.Application.Payloads;
@@ -46,8 +45,8 @@ namespace TiktokBackend.Application.Commands.Auths
                 if (!validationResult.Success)
                     return ServiceResponse<bool>.Fail(validationResult.Message);
                 string key = $"otp:{req.Type}:{req.Email ?? req.PhoneNumber}";
-                var checkOtp = await _redisService.GetAsync(key);
-                if (checkOtp is null)
+                var storedOtp = await _redisService.GetAsync(key);
+                if (string.IsNullOrEmpty(storedOtp) || storedOtp != req.VerificationCode )
                     return ServiceResponse<bool>.Fail("Mã xác thực không chính xác.");
                 User newUser;
                 if (req.Type == "email")
@@ -74,16 +73,16 @@ namespace TiktokBackend.Application.Commands.Auths
                 if (result == null)
                     return ServiceResponse<bool>.Fail("Đăng ký thất bại.");
 
-                var actoken = _jwtService.GenerateToken(result);
+                var actoken = _jwtService.GenerateToken(result,"User");
                 var rftoken = _jwtService.GenerateRefreshToken();
 
-                await _userRoleRepository.AddUserRoleAsync(result.Id);
+                await _userRoleRepository.AddOrSkipUserRoleAsync(result.Id);
 
                 string ipAddress = _userContextService.GetIpAddress();
                 string userAgent = _userContextService.GetUserAgent();
 
 
-                await _userTokenRepository.AddUserTokenAsync(result.Id, rftoken, ipAddress, userAgent);
+                await _userTokenRepository.AddOrUpdateUserTokenAsync(result.Id, rftoken, ipAddress, userAgent);
 
                 await _unitOfWork.CommitAsync();
 
@@ -94,11 +93,9 @@ namespace TiktokBackend.Application.Commands.Auths
             }
             catch (Exception ex)
             {
-                await _unitOfWork.RollbackAsync(); // Rollback nếu có lỗi
+                await _unitOfWork.RollbackAsync(); 
                 return ServiceResponse<bool>.Fail($"Đăng ký thất bại: {ex.Message}");
             }
-
-
         }
     }
 }

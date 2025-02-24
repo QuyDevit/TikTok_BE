@@ -28,5 +28,23 @@ namespace TiktokBackend.API.Controllers
 
             return Ok(result);
         }
+        [HttpPost("login")]
+        public async Task<IActionResult>LoginAsync([FromBody] LoginCommand request)
+        {
+            var result = await _sender.Send(request);
+
+            return Ok(result);
+        }
+        [HttpGet("logout")]
+        public async Task<IActionResult> LogoutAsync()
+        {
+            if (!HttpContext.Items.TryGetValue("UserId", out var userIdObj) || userIdObj == null || !Guid.TryParse(userIdObj.ToString(), out var userId))
+            {
+                return Unauthorized(new { message = "Không tìm thấy người dùng!" });
+            }
+            var result = await _sender.Send(new LogoutCommand(userId));
+
+            return Ok(result);
+        }
     }
 }

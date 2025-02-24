@@ -9,6 +9,8 @@ namespace TiktokBackend.Domain.Interfaces
 {
     public interface IUserTokenRepository
     {
-        Task<bool> AddUserTokenAsync(Guid userId,string rfToken,string ipAddress,string userAgent);
+        Task AddOrUpdateUserTokenAsync(Guid userId,string rfToken,string ipAddress,string userAgent);
+        Task<UserToken?> RefreshTokenAsync(string token);
+        Task<bool> RemoveRefreshTokenAsync(Guid userId,string token);
     }
 }

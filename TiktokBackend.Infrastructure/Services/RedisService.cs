@@ -17,22 +17,45 @@ namespace TiktokBackend.Infrastructure.Services
         }
         public async Task<string?> GetAsync(string key)
         {
-            var data = await _cache.GetAsync(key);
-            return data == null ? null : Encoding.UTF8.GetString(data);
+            try
+            {
+                var data = await _cache.GetAsync(key);
+                return data == null ? null : Encoding.UTF8.GetString(data);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Redis GetAsync error: {ex.Message}");
+                return null; 
+            }
         }
 
         public async Task SetAsync(string key, string value, int expirationSeconds)
         {
-            var options = new DistributedCacheEntryOptions
+            try
             {
-                AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(expirationSeconds)
-            };
-            await _cache.SetAsync(key, Encoding.UTF8.GetBytes(value), options);
+                var options = new DistributedCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(expirationSeconds)
+                };
+                await _cache.SetAsync(key, Encoding.UTF8.GetBytes(value), options);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Redis SetAsync error: {ex.Message}");
+            }
+            
         }
 
         public async Task RemoveAsync(string key)
         {
-            await _cache.RemoveAsync(key);
+            try
+            {
+                await _cache.RemoveAsync(key);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Redis RemoveAsync error: {ex.Message}");
+            }
         }
     }
 }

@@ -37,16 +37,25 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseHttpsRedirection();
+
 app.UseCors(builder =>
-    {
-        builder
-        .AllowAnyOrigin()
-        .AllowAnyMethod()
-        .AllowAnyHeader();
-    }
+{
+    builder
+    .SetIsOriginAllowed(_ => true)
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .AllowCredentials();
+}
 );
-//app.UseMiddleware<ApiKeyAuthorizationMiddleware>();
+
+app.UseHttpsRedirection();
+
+app.UseStaticFiles();
+
+app.UseMiddleware<ApiKeyAuthorizationMiddleware>();
+app.UseMiddleware<TokenRefreshMiddleware>();
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

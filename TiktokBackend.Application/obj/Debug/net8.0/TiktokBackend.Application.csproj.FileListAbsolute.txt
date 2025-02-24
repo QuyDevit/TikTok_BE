@@ -13,3 +13,4 @@ D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\TiktokBa
 D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\refint\TiktokBackend.Application.dll
 D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\TiktokBackend.Application.pdb
 D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\ref\TiktokBackend.Application.dll
+D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\TiktokBackend.Application.sourcelink.json

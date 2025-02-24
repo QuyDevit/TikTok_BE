@@ -1,14 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
+using TiktokBackend.Application.DTOs;
 using TiktokBackend.Domain.Entities;
 using TiktokBackend.Domain.Interfaces;
 
@@ -35,16 +31,14 @@ namespace TiktokBackend.Infrastructure.Services
             return Convert.ToBase64String(randomNumber);
         }
 
-        public string GenerateToken(User user)
+        public string GenerateToken(User user,string role)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Secret"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var claims = new[]
             {
                 new Claim("Id",user.Id.ToString()),
-                new Claim("Email",user.Email.ToString()),
-                new Claim("FullName",user.FullName),
-                new Claim("NickName",user.Nickname),
+                new Claim("Role",role),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
             var token = new JwtSecurityToken(
@@ -57,7 +51,7 @@ namespace TiktokBackend.Infrastructure.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public Guid ValidateToken(string actoken)
+        public TokenInfoDto? ValidateToken(string actoken)
         {
             try
             {
@@ -76,18 +70,20 @@ namespace TiktokBackend.Infrastructure.Services
 
                 var principal = tokenHandler.ValidateToken(actoken, tokenValidationParameters, out var validatedToken);
 
-                var userId = principal.Claims.FirstOrDefault(c => c.Type == "Id");
-                if (userId != null)
+                var userIdClaim = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier || c.Type == "Id");
+                var roleClaim = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role || c.Type == "Role");
+
+                if (userIdClaim == null || roleClaim == null)
+                    return null;
+
+                return new TokenInfoDto
                 {
-                    return Guid.Parse(userId.Value);
-                }
-                else
-                {
-                    throw new SecurityTokenException("Token không chứa thông tin Id hợp lệ.");
-                }
+                    UserId = Guid.Parse(userIdClaim.Value),
+                    Role = roleClaim?.Value ?? "User" 
+                };
             }
-            catch (Exception ex) {
-                throw new SecurityTokenException($"Token không hợp lệ: {ex.Message}");
+            catch (Exception ) {
+                return null;
             }
             
         }

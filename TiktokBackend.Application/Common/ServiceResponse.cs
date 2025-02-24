@@ -15,9 +15,9 @@ namespace TiktokBackend.Application.Common
 
         public ServiceResponse(T data, string message = "")
         {
-            Data = data;
             Success = true;
             Message = message;
+            Data = data;
         }
         public static ServiceResponse<T> Fail(string message)
         {

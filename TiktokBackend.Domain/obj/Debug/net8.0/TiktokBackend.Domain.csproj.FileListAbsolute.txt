@@ -10,3 +10,4 @@ D:\Project\TiktokBackend.API\TiktokBackend.Domain\obj\Debug\net8.0\TiktokBackend
 D:\Project\TiktokBackend.API\TiktokBackend.Domain\obj\Debug\net8.0\refint\TiktokBackend.Domain.dll
 D:\Project\TiktokBackend.API\TiktokBackend.Domain\obj\Debug\net8.0\TiktokBackend.Domain.pdb
 D:\Project\TiktokBackend.API\TiktokBackend.Domain\obj\Debug\net8.0\ref\TiktokBackend.Domain.dll
+D:\Project\TiktokBackend.API\TiktokBackend.Domain\obj\Debug\net8.0\TiktokBackend.Domain.sourcelink.json

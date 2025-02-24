@@ -17,6 +17,32 @@
   },
   {
     "ContainingType": "TiktokBackend.API.Controllers.AuthController",
+    "Method": "LoginAsync",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TiktokBackend.Application.Commands.Auths.LoginCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.AuthController",
+    "Method": "LogoutAsync",
+    "RelativePath": "api/Auth/logout",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.AuthController",
     "Method": "RegisterWithOtpAsync",
     "RelativePath": "api/Auth/register/otp",
     "HttpMethod": "POST",
@@ -49,15 +75,25 @@
   },
   {
     "ContainingType": "TiktokBackend.API.Controllers.UserController",
-    "Method": "AddUserAsync",
-    "RelativePath": "api/User",
-    "HttpMethod": "POST",
+    "Method": "GetInfoUserAsync",
+    "RelativePath": "api/User/me",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.UserController",
+    "Method": "UpdateNickName",
+    "RelativePath": "api/User/updatename",
+    "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "user",
-        "Type": "TiktokBackend.Domain.Entities.User",
+        "Name": "request",
+        "Type": "TiktokBackend.Application.Payloads.UpdateInfoRequest\u002BRequestNickname",
         "IsRequired": true
       }
     ],

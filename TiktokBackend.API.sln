@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiktokBackend.API", "TiktokBackend.API\TiktokBackend.API.csproj", "{415428ED-F634-40C6-8E76-7010FE6DA013}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiktokBackend.API", "TiktokBackend.API\TiktokBackend.API.csproj", "{415428ED-F634-40C6-8E76-7010FE6DA013}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiktokBackend.Application", "TiktokBackend.Application\TiktokBackend.Application.csproj", "{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiktokBackend.Application", "TiktokBackend.Application\TiktokBackend.Application.csproj", "{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiktokBackend.Domain", "TiktokBackend.Domain\TiktokBackend.Domain.csproj", "{FDEF3ADD-6EB5-4EA8-A161-7A4344CBB813}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiktokBackend.Domain", "TiktokBackend.Domain\TiktokBackend.Domain.csproj", "{FDEF3ADD-6EB5-4EA8-A161-7A4344CBB813}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiktokBackend.Infrastructure", "TiktokBackend.Infrastructure\TiktokBackend.Infrastructure.csproj", "{A8F42DAD-A2DD-4D5A-BDF7-CD53528B3999}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiktokBackend.Infrastructure", "TiktokBackend.Infrastructure\TiktokBackend.Infrastructure.csproj", "{A8F42DAD-A2DD-4D5A-BDF7-CD53528B3999}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

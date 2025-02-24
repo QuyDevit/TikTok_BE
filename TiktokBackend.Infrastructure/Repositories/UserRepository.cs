@@ -21,21 +21,7 @@ namespace TiktokBackend.Infrastructure.Repositories
             entity.FullName = $"user{timestamp}";
             entity.Nickname = $"user{timestamp}";
             _context.Users.Add(entity);
-            await _context.SaveChangesAsync();
             return entity;
-        }
-
-        public async Task<bool> DeleteUserAsync(Guid id)
-        {
-            
-            var result = await _context.Users.FindAsync(id);
-            if(result is null)
-            {
-                return false;
-            }
-            _context.Users.Remove(result);
-            await _context.SaveChangesAsync();
-            return true;
         }
 
         public async Task<User?> GetUserByIdAsync(Guid id)
@@ -55,21 +41,6 @@ namespace TiktokBackend.Infrastructure.Repositories
             return result;
         }
 
-        public async Task<bool> UpdateUserAsync(Guid id, User user)
-        {
-            var result = await _context.Users.FindAsync(id);
-            if (result is null)
-            {
-                return false;
-            }
-            result.FullName = user.FullName;
-            result.Avatar = user.Avatar;
-            result.Bio = user.Bio;
-            result.UpdatedAt = DateTime.UtcNow;
-            await _context.SaveChangesAsync();
-            return true;
-        }
-
         public async Task<User?> GetUserByEmailAsync(string email)
         {
             var result = await _context.Users.SingleOrDefaultAsync(u => u.Email == email);
@@ -80,6 +51,39 @@ namespace TiktokBackend.Infrastructure.Repositories
         {
             var result = await _context.Users.SingleOrDefaultAsync(u => u.PhoneNumber == phone);
             return result;
+        }
+
+        public async Task<User?> UpdateUserNameByIdAsync(Guid id, string userid)
+        {
+            var result = await _context.Users.FindAsync(id);
+            if(result is null)
+            {
+                return null;
+            }
+            result.Nickname = userid;
+            return result;
+        }
+
+        public async Task<bool> CheckUserNameByIdAsync(string userid)
+        {
+            var result = await _context.Users.FirstOrDefaultAsync(s=>s.Nickname == userid);
+            if (result is null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<User?> ValidateUserAsync(string username, string password)
+        {
+            var  user = await _context.Users.FirstOrDefaultAsync(n => (n.Email ==username || n.Nickname == username));
+
+            if (user != null && BCryptHelper.Verify(password, user.Password))
+            {
+                return user;
+            }
+
+            return null;
         }
     }
 }

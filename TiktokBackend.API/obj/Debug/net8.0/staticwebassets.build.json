@@ -1,11 +1,39 @@
 {
   "Version": 1,
-  "Hash": "RH0sWfKgpzFKhPyJA7hTt3BXy/RnJ73k7VpIrkXBXts=",
+  "Hash": "aXPGfSaKD++pxkbpSu5CokR/QqXC7c8d497vLjLNRow=",
   "Source": "TiktokBackend.API",
   "BasePath": "_content/TiktokBackend.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "TiktokBackend.API\\wwwroot",
+      "Source": "TiktokBackend.API",
+      "ContentRoot": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\wwwroot\\",
+      "BasePath": "_content/TiktokBackend.API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\wwwroot\\uploads\\templates\\SendOtpMail.html",
+      "SourceId": "TiktokBackend.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\wwwroot\\",
+      "BasePath": "_content/TiktokBackend.API",
+      "RelativePath": "uploads/templates/SendOtpMail.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\templates\\SendOtpMail.html"
+    }
+  ]
 }

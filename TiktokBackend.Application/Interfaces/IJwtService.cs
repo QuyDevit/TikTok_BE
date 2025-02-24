@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TiktokBackend.Application.DTOs;
 using TiktokBackend.Domain.Entities;
 
 namespace TiktokBackend.Domain.Interfaces
 {
     public interface IJwtService
     {
-        string GenerateToken(User user);
+        string GenerateToken(User user,string role);
         string GenerateRefreshToken();
-        Guid ValidateToken(string actoken);
+        TokenInfoDto? ValidateToken(string actoken);
     }
 }

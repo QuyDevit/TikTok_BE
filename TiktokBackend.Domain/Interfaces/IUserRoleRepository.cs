@@ -9,6 +9,6 @@ namespace TiktokBackend.Domain.Interfaces
 {
     public interface IUserRoleRepository
     {
-        Task<bool> AddUserRoleAsync(Guid userId);
+        Task AddOrSkipUserRoleAsync(Guid userId);
     }
 }

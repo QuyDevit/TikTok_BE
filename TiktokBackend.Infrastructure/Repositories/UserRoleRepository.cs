@@ -10,15 +10,18 @@ namespace TiktokBackend.Infrastructure.Repositories
         public UserRoleRepository(AppDbContext context) {
             _context = context;
         }
-        public async Task<bool> AddUserRoleAsync(Guid userId)
+        public async Task AddOrSkipUserRoleAsync(Guid userId)
         {
-            var newUserRole = new UserRoles
+            var userRole = await _context.UserRoles.FindAsync(userId);
+            if(userRole == null)
             {
-                RoleId = Guid.Parse("e7139aac-a0b6-4912-93c7-f63199ad33e2"),
-                UserId = userId
-            };
-            _context.UserRoles.Add(newUserRole);
-            return await _context.SaveChangesAsync() > 0;
+                var newUserRole = new UserRoles
+                {
+                    RoleId = Guid.Parse("e7139aac-a0b6-4912-93c7-f63199ad33e2"),
+                    UserId = userId
+                };
+                _context.UserRoles.Add(newUserRole);
+            }
         }
     }
 }

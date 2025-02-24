@@ -157,3 +157,5 @@ D:\Project\TiktokBackend.API\TiktokBackend.API\bin\Debug\net8.0\Pipelines.Socket
 D:\Project\TiktokBackend.API\TiktokBackend.API\bin\Debug\net8.0\StackExchange.Redis.dll
 D:\Project\TiktokBackend.API\TiktokBackend.API\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
 D:\Project\TiktokBackend.API\TiktokBackend.API\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
+D:\Project\TiktokBackend.API\TiktokBackend.API\obj\Debug\net8.0\TiktokBackend.API.sourcelink.json
+D:\Project\TiktokBackend.API\TiktokBackend.API\bin\Debug\net8.0\TiktokBackend.API.staticwebassets.runtime.json

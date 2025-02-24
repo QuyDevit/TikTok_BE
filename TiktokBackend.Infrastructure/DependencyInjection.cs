@@ -19,7 +19,6 @@ namespace TiktokBackend.Infrastructure
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IApiKeyRepository, ApiKeyRepository>();      
-            services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IUserRoleRepository, UserRoleRepository>();
             services.AddScoped<IUserTokenRepository, UserTokenRepository>();
 
@@ -27,7 +26,9 @@ namespace TiktokBackend.Infrastructure
 
             services.AddScoped<IJwtService, JwtService>();
             services.AddTransient<IEmailService, EmailService>();
+            services.AddSingleton<IEmailTemplateService, EmailTemplateService>();
             services.AddScoped<IUserContextService, UserContextService>();
+            services.AddScoped<ICookieService, CookieService>();
 
             string isRedisEnabledStr = configuration["RedisConfiguration:Enabled"];
             bool isRedisEnabled = !string.IsNullOrEmpty(isRedisEnabledStr) && bool.Parse(isRedisEnabledStr);

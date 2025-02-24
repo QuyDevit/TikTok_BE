@@ -17,3 +17,4 @@ D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\refin
 D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\TiktokBackend.Infrastructure.pdb
 D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\TiktokBackend.Infrastructure.genruntimeconfig.cache
 D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\ref\TiktokBackend.Infrastructure.dll
+D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\TiktokBackend.Infrastructure.sourcelink.json
