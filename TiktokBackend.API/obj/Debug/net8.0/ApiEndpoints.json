@@ -33,6 +33,22 @@
   },
   {
     "ContainingType": "TiktokBackend.API.Controllers.AuthController",
+    "Method": "LoginWithOtpAsync",
+    "RelativePath": "api/Auth/login/otp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestOtp",
+        "Type": "TiktokBackend.Application.Commands.Auths.LoginWithOtpCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.AuthController",
     "Method": "LogoutAsync",
     "RelativePath": "api/Auth/logout",
     "HttpMethod": "GET",
@@ -75,6 +91,22 @@
   },
   {
     "ContainingType": "TiktokBackend.API.Controllers.UserController",
+    "Method": "GetInfoUserByNickNameAsync",
+    "RelativePath": "api/User",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nickname",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.UserController",
     "Method": "GetInfoUserAsync",
     "RelativePath": "api/User/me",
     "HttpMethod": "GET",
@@ -85,7 +117,94 @@
   },
   {
     "ContainingType": "TiktokBackend.API.Controllers.UserController",
-    "Method": "UpdateNickName",
+    "Method": "SearchInfoUserByKeywordAsync",
+    "RelativePath": "api/User/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "q",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "type",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "loadMore",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.UserController",
+    "Method": "UpdateInfoAsync",
+    "RelativePath": "api/User/updateinfo",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ContentType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ContentDisposition",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Headers",
+        "Type": "Microsoft.AspNetCore.Http.IHeaderDictionary",
+        "IsRequired": false
+      },
+      {
+        "Name": "Length",
+        "Type": "System.Int64",
+        "IsRequired": false
+      },
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FileName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "fullname",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "nickname",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "bio",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.UserController",
+    "Method": "UpdateNickNameAsync",
     "RelativePath": "api/User/updatename",
     "HttpMethod": "PATCH",
     "IsController": true,

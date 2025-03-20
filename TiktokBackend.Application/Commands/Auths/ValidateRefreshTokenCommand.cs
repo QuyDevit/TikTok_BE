@@ -12,14 +12,17 @@ namespace TiktokBackend.Application.Commands.Auths
         private readonly IUserTokenRepository _userTokenRepository;
         private readonly IUserRepository _userRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IUserContextService _userContextService;
+
 
         public ValidateRefreshTokenCommandHandler(IJwtService jwtService, IUserTokenRepository userTokenRepository
-            ,IUserRepository userRepository,IUnitOfWork unitOfWork)
+            ,IUserRepository userRepository,IUnitOfWork unitOfWork, IUserContextService userContextService)
         {
             _jwtService = jwtService;
             _userTokenRepository = userTokenRepository;
             _userRepository = userRepository;
             _unitOfWork = unitOfWork;
+            _userContextService = userContextService;
         }
 
         public async Task<UserTokenDto?> Handle(ValidateRefreshTokenCommand request, CancellationToken cancellationToken)
@@ -27,7 +30,8 @@ namespace TiktokBackend.Application.Commands.Auths
             await _unitOfWork.BeginTransactionAsync();
             try
             {
-                var validRefreshToken = await _userTokenRepository.RefreshTokenAsync(request.RefreshToken);
+                string deviceId = _userContextService.GetDeviceId();
+                var validRefreshToken = await _userTokenRepository.RefreshTokenAsync(request.RefreshToken, deviceId);
                 if (validRefreshToken == null || !validRefreshToken.UserId.HasValue)
                     return null;
                 var userCurrent = await _userRepository.GetUserByIdAsync(validRefreshToken.UserId.Value);

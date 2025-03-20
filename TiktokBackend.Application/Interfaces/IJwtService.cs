@@ -7,6 +7,6 @@ namespace TiktokBackend.Domain.Interfaces
     {
         string GenerateToken(User user,string role);
         string GenerateRefreshToken();
-        TokenInfoDto? ValidateToken(string actoken);
+        UserTokenDto? ValidateToken(string actoken);
     }
 }

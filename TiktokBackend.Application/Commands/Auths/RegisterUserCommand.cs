@@ -1,5 +1,7 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using TiktokBackend.Application.Common;
+using TiktokBackend.Application.DTOs;
 using TiktokBackend.Application.Interfaces;
 using TiktokBackend.Application.Payloads;
 using TiktokBackend.Application.Validators;
@@ -16,23 +18,28 @@ namespace TiktokBackend.Application.Commands.Auths
         private readonly IUserRepository _userRepository;
         private readonly IUserRoleRepository _userRoleRepository;
         private readonly IUserTokenRepository _userTokenRepository;
-        private readonly IRedisService _redisService;
+        private readonly IOtpCacheService _otpCache;
         private readonly IJwtService _jwtService;
         private readonly IUserContextService _userContextService;
         private readonly ICookieService _cookieService;
+        private readonly IUserSearchService _userSearchService;
+        private readonly IMapper _mapper;
 
-        public RegisterUserCommandHandler(IUserRepository userRepository, IRedisService redisService,
+        public RegisterUserCommandHandler(IUserRepository userRepository, IOtpCacheService redisService,
             IJwtService jwtService,IUserRoleRepository userRoleRepository,IUserTokenRepository userTokenRepository,
-            IUserContextService userContextService,IUnitOfWork unitOfWork,ICookieService cookieService)
+            IUserContextService userContextService,IUnitOfWork unitOfWork,ICookieService cookieService,
+            IUserSearchService userSearchService,IMapper mapper)
         {
             _userRepository = userRepository;
-            _redisService = redisService;   
+            _otpCache = redisService;   
             _jwtService = jwtService;
             _userRoleRepository = userRoleRepository;
             _userTokenRepository = userTokenRepository;
             _userContextService = userContextService;
             _unitOfWork = unitOfWork;
             _cookieService = cookieService;
+            _userSearchService = userSearchService;
+            _mapper = mapper;
         }
 
         public async Task<ServiceResponse<bool>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
@@ -44,8 +51,8 @@ namespace TiktokBackend.Application.Commands.Auths
                 var validationResult = RegisterRequestValidator.Validate(req);
                 if (!validationResult.Success)
                     return ServiceResponse<bool>.Fail(validationResult.Message);
-                string key = $"otp:{req.Type}:{req.Email ?? req.PhoneNumber}";
-                var storedOtp = await _redisService.GetAsync(key);
+                string key = $"register:otp:{req.Type}:{req.Email ?? req.PhoneNumber}";
+                var storedOtp = await _otpCache.GetAsync(key);
                 if (string.IsNullOrEmpty(storedOtp) || storedOtp != req.VerificationCode )
                     return ServiceResponse<bool>.Fail("Mã xác thực không chính xác.");
                 User newUser;
@@ -73,6 +80,9 @@ namespace TiktokBackend.Application.Commands.Auths
                 if (result == null)
                     return ServiceResponse<bool>.Fail("Đăng ký thất bại.");
 
+                var userDto = _mapper.Map<UserDto>(result);
+                await _userSearchService.IndexUserAsync(userDto);
+
                 var actoken = _jwtService.GenerateToken(result,"User");
                 var rftoken = _jwtService.GenerateRefreshToken();
 
@@ -80,9 +90,9 @@ namespace TiktokBackend.Application.Commands.Auths
 
                 string ipAddress = _userContextService.GetIpAddress();
                 string userAgent = _userContextService.GetUserAgent();
+                string deviceId = _userContextService.GetDeviceId();
 
-
-                await _userTokenRepository.AddOrUpdateUserTokenAsync(result.Id, rftoken, ipAddress, userAgent);
+                await _userTokenRepository.AddOrUpdateUserTokenAsync(result.Id, rftoken, ipAddress, userAgent, deviceId);
 
                 await _unitOfWork.CommitAsync();
 

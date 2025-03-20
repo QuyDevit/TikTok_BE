@@ -14,24 +14,32 @@ namespace TiktokBackend.Application.Commands.Users
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
-        public UpdateUserNameByIdCommandHandler(IUserRepository userRepository,IMapper mapper,IUnitOfWork unitOfWork) { 
+        private readonly IUserSearchService _userSearchService;
+        public UpdateUserNameByIdCommandHandler(IUserRepository userRepository,IMapper mapper,IUnitOfWork unitOfWork,
+            IUserSearchService userSearchService) { 
             _userRepository = userRepository;
             _mapper = mapper;
             _unitOfWork = unitOfWork;
+            _userSearchService = userSearchService;
         }
+
+
         public async Task<ServiceResponse<UserDto>> Handle(UpdateUserNameByIdCommand request, CancellationToken cancellationToken)
         {
             await _unitOfWork.BeginTransactionAsync();
             try
             {
-                var isExistNickName = await _userRepository.CheckUserNameByIdAsync(request.Nickname);
+                var isExistNickName = await _userRepository.CheckUserNameByIdAsync(request.UserId,request.Nickname);
                 if (isExistNickName)
                 {
                     return ServiceResponse<UserDto>.Fail("Tiktok Id đã tồn tại!");
                 }
                 var user = await _userRepository.UpdateUserNameByIdAsync(request.UserId, request.Nickname);
+                var userDto = _mapper.Map<UserDto>(user);
+                await _userSearchService.UpdateUserAsync(userDto);
+
                 await _unitOfWork.CommitAsync();
-                return ServiceResponse<UserDto>.Ok(_mapper.Map<UserDto>(user), "Tạo Tiktok id thành công!");
+                return ServiceResponse<UserDto>.Ok(userDto, "Tạo Tiktok id thành công!");
             }
             catch (Exception) { 
                 await _unitOfWork.RollbackAsync();

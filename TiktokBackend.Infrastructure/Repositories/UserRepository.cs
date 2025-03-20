@@ -1,8 +1,8 @@
-﻿using BCryptHelper = BCrypt.Net.BCrypt;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TiktokBackend.Domain.Entities;
 using TiktokBackend.Domain.Interfaces;
 using TiktokBackend.Infrastructure.Persistence;
+using BCryptHelper = BCrypt.Net.BCrypt;
 
 
 namespace TiktokBackend.Infrastructure.Repositories
@@ -20,7 +20,7 @@ namespace TiktokBackend.Infrastructure.Repositories
             long timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
             entity.FullName = $"user{timestamp}";
             entity.Nickname = $"user{timestamp}";
-            _context.Users.Add(entity);
+            await _context.Users.AddAsync(entity);
             return entity;
         }
 
@@ -53,28 +53,24 @@ namespace TiktokBackend.Infrastructure.Repositories
             return result;
         }
 
-        public async Task<User?> UpdateUserNameByIdAsync(Guid id, string userid)
+        public async Task<User?> UpdateUserNameByIdAsync(Guid id, string nickname)
         {
             var result = await _context.Users.FindAsync(id);
             if(result is null)
             {
                 return null;
             }
-            result.Nickname = userid;
+            result.Nickname = nickname;
             return result;
         }
 
-        public async Task<bool> CheckUserNameByIdAsync(string userid)
+        public async Task<bool> CheckUserNameByIdAsync(Guid id,string nickname)
         {
-            var result = await _context.Users.FirstOrDefaultAsync(s=>s.Nickname == userid);
-            if (result is null)
-            {
-                return false;
-            }
-            return true;
+            var result = await _context.Users.AnyAsync(s=>s.Nickname == nickname && s.Id != id);
+            return result;
         }
 
-        public async Task<User?> ValidateUserAsync(string username, string password)
+        public async Task<User?> ValidateUserCaseEmailAsync(string username, string password)
         {
             var  user = await _context.Users.FirstOrDefaultAsync(n => (n.Email ==username || n.Nickname == username));
 
@@ -84,6 +80,53 @@ namespace TiktokBackend.Infrastructure.Repositories
             }
 
             return null;
+        }
+
+        public async Task<User?> ValidateUserCasePhoneAsync(string phone, string password)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(n => n.PhoneNumber == phone);
+
+            if (user != null && BCryptHelper.Verify(password, user.Password))
+            {
+                return user;
+            }
+
+            return null;
+        }
+
+        public async Task<User?> GetUserByNickNameAsync(string nickname)
+        {
+            var result = await _context.Users.SingleOrDefaultAsync(u => u.Nickname == nickname);
+            return result;
+        }
+
+        public async Task<User?> UpdateUserProfileByIdAsync(Guid id, string nickname, string fullname, string bio, string avatar)
+        {
+            var result = await _context.Users.FindAsync(id);
+            if (result is null)
+            {
+                return null;
+            }
+            string[] path = fullname.Split(' ');
+
+            if (path.Length > 1)
+            {
+                result.FirstName = string.Join(" ", path, 0, path.Length - 1); 
+                result.LastName = path[path.Length - 1]; 
+            }
+            else
+            {
+                result.FirstName = path[0]; 
+                result.LastName = string.Empty; 
+            }
+            result.Nickname = nickname;
+            result.FullName = fullname;
+            result.Bio = bio;
+            if (!string.IsNullOrEmpty(avatar))
+            {
+                result.Avatar = avatar;
+            }
+            return result;
         }
     }
 }

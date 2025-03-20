@@ -35,6 +35,12 @@ namespace TiktokBackend.API.Controllers
 
             return Ok(result);
         }
+        [HttpPost("login/otp")]
+        public async Task<IActionResult> LoginWithOtpAsync([FromBody] LoginWithOtpCommand requestOtp)
+        {
+            var result = await _sender.Send(requestOtp);
+            return Ok(result);
+        }   
         [HttpGet("logout")]
         public async Task<IActionResult> LogoutAsync()
         {

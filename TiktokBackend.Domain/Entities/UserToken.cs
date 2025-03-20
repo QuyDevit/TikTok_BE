@@ -24,5 +24,6 @@ namespace TiktokBackend.Domain.Entities
         public string IpAddress { get; set; } // Địa chỉ IP của thiết bị
 
         public string UserAgent { get; set; } // Thông tin trình duyệt (nếu trên web)
+        public string DeviceId { get; set; } 
     }
 }

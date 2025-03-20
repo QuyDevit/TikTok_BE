@@ -15,9 +15,15 @@ namespace TiktokBackend.API.Middlewares
         public async Task Invoke(HttpContext context,ISender sender, IConfiguration configuration)
         {
             var apiKeyHeader = configuration["ApiConfig:ApiHeader"];
+            var apiKeyConfig = configuration["ApiConfig:ApiKey"];
             if (!context.Request.Headers.TryGetValue(apiKeyHeader, out var apiKey))
             {
                 await WriteJsonResponse(context, StatusCodes.Status401Unauthorized, "Thiếu Api Key.");
+                return;
+            }
+            if(apiKey == apiKeyConfig)
+            {
+                await _next(context);
                 return;
             }
             var isValid = await sender.Send(new ValidateApiKeyQuery(apiKey));

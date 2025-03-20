@@ -51,7 +51,7 @@ namespace TiktokBackend.Infrastructure.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public TokenInfoDto? ValidateToken(string actoken)
+        public UserTokenDto? ValidateToken(string actoken)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace TiktokBackend.Infrastructure.Services
                 if (userIdClaim == null || roleClaim == null)
                     return null;
 
-                return new TokenInfoDto
+                return new UserTokenDto
                 {
                     UserId = Guid.Parse(userIdClaim.Value),
                     Role = roleClaim?.Value ?? "User" 

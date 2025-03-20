@@ -28,14 +28,13 @@ namespace TiktokBackend.API.Middlewares
                 await AuthenticateUser(context, tokenInfo);
                 return;
             }
-
             ClearCookiesAndDenyAccess(context);
         }
 
         private static string GetCookie(HttpContext context, string key) =>
             context.Request.Cookies.TryGetValue(key, out var value) ? value : null;
 
-        private async Task<TokenInfoDto?> ValidateAndRefreshToken(ISender sender, string? acToken, string? rfToken)
+        private async Task<UserTokenDto?> ValidateAndRefreshToken(ISender sender, string? acToken, string? rfToken)
         {
             var tokenInfo = !string.IsNullOrEmpty(acToken)
                 ? await sender.Send(new ValidateAccessTokenCommand(acToken))
@@ -47,10 +46,11 @@ namespace TiktokBackend.API.Middlewares
                 if (validRefreshToken != null)
                 {
                     await sender.Send(new SetCookieCommand(validRefreshToken.AccessToken, validRefreshToken.RefreshToken));
-                    return new TokenInfoDto
+                    return new UserTokenDto
                     {
                         UserId = validRefreshToken.UserId,
-                        Role = validRefreshToken.Role
+                        Role = validRefreshToken.Role,
+                        RefreshToken = validRefreshToken.RefreshToken, 
                     };
                 }
             }
@@ -58,10 +58,14 @@ namespace TiktokBackend.API.Middlewares
             return tokenInfo;
         }
 
-        private async Task AuthenticateUser(HttpContext context, TokenInfoDto tokenInfo)
+        private async Task AuthenticateUser(HttpContext context, UserTokenDto tokenInfo)
         {
             context.Items["UserId"] = tokenInfo.UserId;
             context.Items["Role"] = tokenInfo.Role;
+            if(context.Request.Path.Value?.Contains("/logout",StringComparison.OrdinalIgnoreCase) == true)
+            {
+                context.Items["RefreshToken"] = tokenInfo.RefreshToken;
+            }
             await _next(context);
         }
 

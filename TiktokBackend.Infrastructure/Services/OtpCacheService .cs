@@ -1,17 +1,12 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TiktokBackend.Domain.Interfaces;
 
 namespace TiktokBackend.Infrastructure.Services
 {
-    public class RedisService : IRedisService
+    public class OtpCacheService : IOtpCacheService
     {
         private readonly IDistributedCache _cache;
-        public RedisService(IDistributedCache cache)
+        public OtpCacheService(IDistributedCache cache)
         {
             _cache = cache;
         }
@@ -19,8 +14,7 @@ namespace TiktokBackend.Infrastructure.Services
         {
             try
             {
-                var data = await _cache.GetAsync(key);
-                return data == null ? null : Encoding.UTF8.GetString(data);
+                return await _cache.GetStringAsync(key);
             }
             catch (Exception ex)
             {
@@ -37,7 +31,7 @@ namespace TiktokBackend.Infrastructure.Services
                 {
                     AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(expirationSeconds)
                 };
-                await _cache.SetAsync(key, Encoding.UTF8.GetBytes(value), options);
+                await _cache.SetStringAsync(key, value, options);
             }
             catch (Exception ex)
             {

@@ -1,6 +1,6 @@
 ﻿namespace TiktokBackend.Domain.Interfaces
 {
-    public interface IRedisService
+    public interface IOtpCacheService
     {
         Task SetAsync(string key, string value, int expirationSeconds);
         Task<string?> GetAsync(string key);

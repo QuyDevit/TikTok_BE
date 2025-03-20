@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TiktokBackend.API.Filters;
 using TiktokBackend.Application.Commands.Users;
@@ -29,8 +30,22 @@ namespace TiktokBackend.API.Controllers
             var result = await _sender.Send(new GetUserByIdQuery(userId));
             return Ok(result);
         }
+        [AllowAnonymous]
+        [HttpGet("")]
+        public async Task<IActionResult> GetInfoUserByNickNameAsync(string nickname)
+        {
+            var result = await _sender.Send(new GetUserByNickNameQuery(nickname));
+            return Ok(result);
+        }
+        [AllowAnonymous]
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchInfoUserByKeywordAsync(string q, string type = "less", int page = 1, int loadMore = 0)
+        {
+            var result = await _sender.Send(new GetListUserByKeywordQuery(q,type,page,loadMore));
+            return Ok(result);
+        }
         [HttpPatch("updatename")]
-        public async Task<IActionResult> UpdateNickName([FromBody] UpdateInfoRequest.RequestNickname request)
+        public async Task<IActionResult> UpdateNickNameAsync([FromBody] UpdateInfoRequest.RequestNickname request)
         {
             if (!HttpContext.Items.TryGetValue("UserId", out var userIdObj) || userIdObj == null || !Guid.TryParse(userIdObj.ToString(), out var userId))
             {
@@ -38,6 +53,33 @@ namespace TiktokBackend.API.Controllers
             }
 
             var result = await _sender.Send(new UpdateUserNameByIdCommand(userId, request.Nickname));
+            return Ok(result);
+        }
+        [HttpPatch("updateinfo")]
+        public async Task<IActionResult> UpdateInfoAsync([FromForm] IFormFile? avatar, [FromForm] string fullname, [FromForm] string nickname, [FromForm] string? bio)
+        {
+            if (!HttpContext.Items.TryGetValue("UserId", out var userIdObj) || userIdObj == null || !Guid.TryParse(userIdObj.ToString(), out var userId))
+            {
+                return Unauthorized(new { message = "Không tìm thấy người dùng!" });
+            }
+            byte[] avatarBytes = null;
+            if (avatar != null)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    await avatar.CopyToAsync(memoryStream);
+                    avatarBytes = memoryStream.ToArray(); 
+                }
+            }
+            var request = new UpdateInfoRequest.RequestInfo
+            {
+                UserId = userId,
+                Fullname = fullname,
+                Nickname = nickname,
+                Bio = bio ==null ? "":bio,
+                Avatar = avatarBytes
+            };
+            var result = await _sender.Send(new UpdateUserInfoByIdCommand(request));
             return Ok(result);
         }
     }

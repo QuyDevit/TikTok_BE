@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiktokBackend.Domain", "Tik
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiktokBackend.Infrastructure", "TiktokBackend.Infrastructure\TiktokBackend.Infrastructure.csproj", "{A8F42DAD-A2DD-4D5A-BDF7-CD53528B3999}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{DC8799BC-390F-4721-B754-7354479820D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A8F42DAD-A2DD-4D5A-BDF7-CD53528B3999}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8F42DAD-A2DD-4D5A-BDF7-CD53528B3999}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8F42DAD-A2DD-4D5A-BDF7-CD53528B3999}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC8799BC-390F-4721-B754-7354479820D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC8799BC-390F-4721-B754-7354479820D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC8799BC-390F-4721-B754-7354479820D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC8799BC-390F-4721-B754-7354479820D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

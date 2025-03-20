@@ -1,5 +1,4 @@
-﻿using Azure;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using TiktokBackend.Application.Interfaces;
 
 namespace TiktokBackend.Infrastructure.Services
@@ -20,6 +19,10 @@ namespace TiktokBackend.Infrastructure.Services
 
         public string? GetRefreshToken()
         {
+            var newRefreshToken = _contextAccessor.HttpContext.Items["RefreshToken"] as string;
+            if (!string.IsNullOrEmpty(newRefreshToken)) 
+                return newRefreshToken;
+            
             return _contextAccessor.HttpContext?.Request.Cookies.TryGetValue("refreshToken",out var refreshToken) == true 
                 ? refreshToken : null;
         }

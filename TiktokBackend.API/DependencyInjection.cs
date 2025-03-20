@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using TiktokBackend.Application;
+﻿using TiktokBackend.Application;
 using TiktokBackend.Infrastructure;
 
 namespace TiktokBackend.API

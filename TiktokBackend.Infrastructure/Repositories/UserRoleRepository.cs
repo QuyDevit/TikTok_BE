@@ -1,4 +1,5 @@
-﻿using TiktokBackend.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using TiktokBackend.Domain.Entities;
 using TiktokBackend.Domain.Interfaces;
 using TiktokBackend.Infrastructure.Persistence;
 
@@ -12,7 +13,7 @@ namespace TiktokBackend.Infrastructure.Repositories
         }
         public async Task AddOrSkipUserRoleAsync(Guid userId)
         {
-            var userRole = await _context.UserRoles.FindAsync(userId);
+            var userRole = await _context.UserRoles.SingleOrDefaultAsync(u=>u.UserId == userId);
             if(userRole == null)
             {
                 var newUserRole = new UserRoles

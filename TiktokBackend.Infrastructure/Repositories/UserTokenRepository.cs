@@ -1,9 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TiktokBackend.Domain.Entities;
 using TiktokBackend.Domain.Interfaces;
 using TiktokBackend.Infrastructure.Persistence;
@@ -20,7 +15,7 @@ namespace TiktokBackend.Infrastructure.Repositories
             _jwtService = jwtService; _context = context;
         }
 
-        public async Task AddOrUpdateUserTokenAsync(Guid userId, string rfToken, string ipAddress, string userAgent)
+        public async Task AddOrUpdateUserTokenAsync(Guid userId, string rfToken, string ipAddress, string userAgent,string deviceId)
         {
             var findUserToken = await _context.UserTokens.FirstOrDefaultAsync(x =>x.UserId == userId && x.IpAddress == ipAddress && x.UserAgent == userAgent);
             if (findUserToken == null) { 
@@ -30,6 +25,7 @@ namespace TiktokBackend.Infrastructure.Repositories
                     IpAddress = ipAddress,
                     UserAgent = userAgent,
                     RefreshToken = rfToken,
+                    DeviceId = deviceId,
                     ExpiryDate = DateTime.UtcNow.AddDays(7),
                 };
                 await _context.UserTokens.AddAsync(newUserToken);
@@ -40,9 +36,9 @@ namespace TiktokBackend.Infrastructure.Repositories
             }
         }
 
-        public async Task<UserToken?> RefreshTokenAsync(string token)
+        public async Task<UserToken?> RefreshTokenAsync(string token, string deviceId)
         {
-            var userRefreshToken = await _context.UserTokens.FirstOrDefaultAsync(t=>t.RefreshToken == token);
+            var userRefreshToken = await _context.UserTokens.FirstOrDefaultAsync(t=>t.RefreshToken == token && t.DeviceId == deviceId);
             if(userRefreshToken == null)
                 return null;
             if ( userRefreshToken.ExpiryDate < DateTime.UtcNow)

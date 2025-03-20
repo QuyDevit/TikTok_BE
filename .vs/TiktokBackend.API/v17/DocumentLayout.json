@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "D:\\Project\\TiktokBackend.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.application\\commands\\users\\updateusernamebyidcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|solutionrelative:tiktokbackend.application\\commands\\users\\updateusernamebyidcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A8F42DAD-A2DD-4D5A-BDF7-CD53528B3999}|TiktokBackend.Infrastructure\\TiktokBackend.Infrastructure.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.infrastructure\\services\\usersearchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8F42DAD-A2DD-4D5A-BDF7-CD53528B3999}|TiktokBackend.Infrastructure\\TiktokBackend.Infrastructure.csproj|solutionrelative:tiktokbackend.infrastructure\\services\\usersearchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A8F42DAD-A2DD-4D5A-BDF7-CD53528B3999}|TiktokBackend.Infrastructure\\TiktokBackend.Infrastructure.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A8F42DAD-A2DD-4D5A-BDF7-CD53528B3999}|TiktokBackend.Infrastructure\\TiktokBackend.Infrastructure.csproj|solutionrelative:tiktokbackend.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.application\\queries\\users\\getlistuserbykeywordquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|solutionrelative:tiktokbackend.application\\queries\\users\\getlistuserbykeywordquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.application\\common\\pagedresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|solutionrelative:tiktokbackend.application\\common\\pagedresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.application\\interfaces\\iusersearchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|solutionrelative:tiktokbackend.application\\interfaces\\iusersearchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8F42DAD-A2DD-4D5A-BDF7-CD53528B3999}|TiktokBackend.Infrastructure\\TiktokBackend.Infrastructure.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.infrastructure\\services\\usersyncservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8F42DAD-A2DD-4D5A-BDF7-CD53528B3999}|TiktokBackend.Infrastructure\\TiktokBackend.Infrastructure.csproj|solutionrelative:tiktokbackend.infrastructure\\services\\usersyncservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.application\\commands\\auths\\registerusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|solutionrelative:tiktokbackend.application\\commands\\auths\\registerusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{415428ED-F634-40C6-8E76-7010FE6DA013}|TiktokBackend.API\\TiktokBackend.API.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,48 +35,8 @@
       "RelativeMoniker": "D:0:0:{415428ED-F634-40C6-8E76-7010FE6DA013}|TiktokBackend.API\\TiktokBackend.API.csproj|solutionrelative:tiktokbackend.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.application\\commands\\auths\\registerwithotpcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|solutionrelative:tiktokbackend.application\\commands\\auths\\registerwithotpcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.application\\commands\\auths\\validaterefreshtokencommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|solutionrelative:tiktokbackend.application\\commands\\auths\\validaterefreshtokencommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.application\\commands\\auths\\logoutcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|solutionrelative:tiktokbackend.application\\commands\\auths\\logoutcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{415428ED-F634-40C6-8E76-7010FE6DA013}|TiktokBackend.API\\TiktokBackend.API.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.api\\middlewares\\tokenrefreshmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{415428ED-F634-40C6-8E76-7010FE6DA013}|TiktokBackend.API\\TiktokBackend.API.csproj|solutionrelative:tiktokbackend.api\\middlewares\\tokenrefreshmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FDEF3ADD-6EB5-4EA8-A161-7A4344CBB813}|TiktokBackend.Domain\\TiktokBackend.Domain.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.domain\\interfaces\\iusertokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FDEF3ADD-6EB5-4EA8-A161-7A4344CBB813}|TiktokBackend.Domain\\TiktokBackend.Domain.csproj|solutionrelative:tiktokbackend.domain\\interfaces\\iusertokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8F42DAD-A2DD-4D5A-BDF7-CD53528B3999}|TiktokBackend.Infrastructure\\TiktokBackend.Infrastructure.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.infrastructure\\services\\cookieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A8F42DAD-A2DD-4D5A-BDF7-CD53528B3999}|TiktokBackend.Infrastructure\\TiktokBackend.Infrastructure.csproj|solutionrelative:tiktokbackend.infrastructure\\services\\cookieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.application\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|solutionrelative:tiktokbackend.application\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{415428ED-F634-40C6-8E76-7010FE6DA013}|TiktokBackend.API\\TiktokBackend.API.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.api\\filters\\customauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{415428ED-F634-40C6-8E76-7010FE6DA013}|TiktokBackend.API\\TiktokBackend.API.csproj|solutionrelative:tiktokbackend.api\\filters\\customauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.application\\commands\\auths\\validateaccesstokencommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4AFB4F25-D4A7-48E4-8808-4A0AD82F48F9}|TiktokBackend.Application\\TiktokBackend.Application.csproj|solutionrelative:tiktokbackend.application\\commands\\auths\\validateaccesstokencommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{415428ED-F634-40C6-8E76-7010FE6DA013}|TiktokBackend.API\\TiktokBackend.API.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{415428ED-F634-40C6-8E76-7010FE6DA013}|TiktokBackend.API\\TiktokBackend.API.csproj|solutionrelative:tiktokbackend.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{415428ED-F634-40C6-8E76-7010FE6DA013}|TiktokBackend.API\\TiktokBackend.API.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.api\\middlewares\\apikeyauthorizationmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{415428ED-F634-40C6-8E76-7010FE6DA013}|TiktokBackend.API\\TiktokBackend.API.csproj|solutionrelative:tiktokbackend.api\\middlewares\\apikeyauthorizationmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FDEF3ADD-6EB5-4EA8-A161-7A4344CBB813}|TiktokBackend.Domain\\TiktokBackend.Domain.csproj|d:\\project\\tiktokbackend.api\\tiktokbackend.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDEF3ADD-6EB5-4EA8-A161-7A4344CBB813}|TiktokBackend.Domain\\TiktokBackend.Domain.csproj|solutionrelative:tiktokbackend.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,184 +58,120 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UpdateUserNameByIdCommand.cs",
-              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Commands\\Users\\UpdateUserNameByIdCommand.cs",
-              "RelativeDocumentMoniker": "TiktokBackend.Application\\Commands\\Users\\UpdateUserNameByIdCommand.cs",
-              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Commands\\Users\\UpdateUserNameByIdCommand.cs",
-              "RelativeToolTip": "TiktokBackend.Application\\Commands\\Users\\UpdateUserNameByIdCommand.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAA1wCAAAAAwAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "UserSyncService.cs",
+              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Infrastructure\\Services\\UserSyncService.cs",
+              "RelativeDocumentMoniker": "TiktokBackend.Infrastructure\\Services\\UserSyncService.cs",
+              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Infrastructure\\Services\\UserSyncService.cs",
+              "RelativeToolTip": "TiktokBackend.Infrastructure\\Services\\UserSyncService.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T14:48:21.756Z",
+              "WhenOpened": "2025-03-20T07:50:38.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IUserSearchService.cs",
+              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Interfaces\\IUserSearchService.cs",
+              "RelativeDocumentMoniker": "TiktokBackend.Application\\Interfaces\\IUserSearchService.cs",
+              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Interfaces\\IUserSearchService.cs",
+              "RelativeToolTip": "TiktokBackend.Application\\Interfaces\\IUserSearchService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T06:37:16.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PagedResponse.cs",
+              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Common\\PagedResponse.cs",
+              "RelativeDocumentMoniker": "TiktokBackend.Application\\Common\\PagedResponse.cs",
+              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Common\\PagedResponse.cs",
+              "RelativeToolTip": "TiktokBackend.Application\\Common\\PagedResponse.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwAgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T06:32:34.501Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "TiktokBackend.Infrastructure\\Repositories\\UserRepository.cs",
-              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "TiktokBackend.Infrastructure\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAA0wAAAAAAAAAAAAAAAAA==",
+              "Title": "GetListUserByKeywordQuery.cs",
+              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Queries\\Users\\GetListUserByKeywordQuery.cs",
+              "RelativeDocumentMoniker": "TiktokBackend.Application\\Queries\\Users\\GetListUserByKeywordQuery.cs",
+              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Queries\\Users\\GetListUserByKeywordQuery.cs",
+              "RelativeToolTip": "TiktokBackend.Application\\Queries\\Users\\GetListUserByKeywordQuery.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T14:47:33.801Z"
+              "WhenOpened": "2025-03-20T06:25:36.002Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ValidateRefreshTokenCommand.cs",
-              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Commands\\Auths\\ValidateRefreshTokenCommand.cs",
-              "RelativeDocumentMoniker": "TiktokBackend.Application\\Commands\\Auths\\ValidateRefreshTokenCommand.cs",
-              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Commands\\Auths\\ValidateRefreshTokenCommand.cs",
-              "RelativeToolTip": "TiktokBackend.Application\\Commands\\Auths\\ValidateRefreshTokenCommand.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "UserSearchService.cs",
+              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Infrastructure\\Services\\UserSearchService.cs",
+              "RelativeDocumentMoniker": "TiktokBackend.Infrastructure\\Services\\UserSearchService.cs",
+              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Infrastructure\\Services\\UserSearchService.cs",
+              "RelativeToolTip": "TiktokBackend.Infrastructure\\Services\\UserSearchService.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAgwCsAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T10:37:38.186Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IUserTokenRepository.cs",
-              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Domain\\Interfaces\\IUserTokenRepository.cs",
-              "RelativeDocumentMoniker": "TiktokBackend.Domain\\Interfaces\\IUserTokenRepository.cs",
-              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Domain\\Interfaces\\IUserTokenRepository.cs",
-              "RelativeToolTip": "TiktokBackend.Domain\\Interfaces\\IUserTokenRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T10:34:24.495Z"
+              "WhenOpened": "2025-03-20T06:15:52.845Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "LogoutCommand.cs",
-              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Commands\\Auths\\LogoutCommand.cs",
-              "RelativeDocumentMoniker": "TiktokBackend.Application\\Commands\\Auths\\LogoutCommand.cs",
-              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Commands\\Auths\\LogoutCommand.cs",
-              "RelativeToolTip": "TiktokBackend.Application\\Commands\\Auths\\LogoutCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T10:25:45.239Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CookieService.cs",
-              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Infrastructure\\Services\\CookieService.cs",
-              "RelativeDocumentMoniker": "TiktokBackend.Infrastructure\\Services\\CookieService.cs",
-              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Infrastructure\\Services\\CookieService.cs",
-              "RelativeToolTip": "TiktokBackend.Infrastructure\\Services\\CookieService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T15:19:11.292Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "TiktokBackend.API\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "TiktokBackend.API\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAmwCUAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T14:10:56.155Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TokenRefreshMiddleware.cs",
-              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\Middlewares\\TokenRefreshMiddleware.cs",
-              "RelativeDocumentMoniker": "TiktokBackend.API\\Middlewares\\TokenRefreshMiddleware.cs",
-              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\Middlewares\\TokenRefreshMiddleware.cs",
-              "RelativeToolTip": "TiktokBackend.API\\Middlewares\\TokenRefreshMiddleware.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowCMAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T09:46:57.644Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ValidateAccessTokenCommand.cs",
-              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Commands\\Auths\\ValidateAccessTokenCommand.cs",
-              "RelativeDocumentMoniker": "TiktokBackend.Application\\Commands\\Auths\\ValidateAccessTokenCommand.cs",
-              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Commands\\Auths\\ValidateAccessTokenCommand.cs",
-              "RelativeToolTip": "TiktokBackend.Application\\Commands\\Auths\\ValidateAccessTokenCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T14:49:10.759Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "TiktokBackend.API\\Controllers\\UserController.cs",
               "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\Controllers\\UserController.cs",
               "RelativeToolTip": "TiktokBackend.API\\Controllers\\UserController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAmwCcAAABJAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowCsAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T09:49:10.808Z"
+              "WhenOpened": "2025-03-19T15:58:57.655Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RegisterWithOtpCommand.cs",
-              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Commands\\Auths\\RegisterWithOtpCommand.cs",
-              "RelativeDocumentMoniker": "TiktokBackend.Application\\Commands\\Auths\\RegisterWithOtpCommand.cs",
-              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Commands\\Auths\\RegisterWithOtpCommand.cs",
-              "RelativeToolTip": "TiktokBackend.Application\\Commands\\Auths\\RegisterWithOtpCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAABDAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "RegisterUserCommand.cs",
+              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Commands\\Auths\\RegisterUserCommand.cs",
+              "RelativeDocumentMoniker": "TiktokBackend.Application\\Commands\\Auths\\RegisterUserCommand.cs",
+              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\Commands\\Auths\\RegisterUserCommand.cs",
+              "RelativeToolTip": "TiktokBackend.Application\\Commands\\Auths\\RegisterUserCommand.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAwwFMAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T13:48:03.91Z"
+              "WhenOpened": "2025-03-19T15:42:38.734Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UserDto.cs",
-              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\DTOs\\UserDto.cs",
-              "RelativeDocumentMoniker": "TiktokBackend.Application\\DTOs\\UserDto.cs",
-              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Application\\DTOs\\UserDto.cs",
-              "RelativeToolTip": "TiktokBackend.Application\\DTOs\\UserDto.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBMAAAAcAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "TiktokBackend.Domain\\Entities\\User.cs",
+              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "TiktokBackend.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAuwEgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T08:51:37.829Z"
+              "WhenOpened": "2025-03-19T11:08:49.766Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\Program.cs",
-              "RelativeDocumentMoniker": "TiktokBackend.API\\Program.cs",
-              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\Program.cs",
-              "RelativeToolTip": "TiktokBackend.API\\Program.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAjwDAAAAACAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "TiktokBackend.API\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "TiktokBackend.API\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwBoAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T10:30:31.009Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ApiKeyAuthorizationMiddleware.cs",
-              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\Middlewares\\ApiKeyAuthorizationMiddleware.cs",
-              "RelativeDocumentMoniker": "TiktokBackend.API\\Middlewares\\ApiKeyAuthorizationMiddleware.cs",
-              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\Middlewares\\ApiKeyAuthorizationMiddleware.cs",
-              "RelativeToolTip": "TiktokBackend.API\\Middlewares\\ApiKeyAuthorizationMiddleware.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T10:03:14.753Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CustomAuthorizeAttribute.cs",
-              "DocumentMoniker": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\Filters\\CustomAuthorizeAttribute.cs",
-              "RelativeDocumentMoniker": "TiktokBackend.API\\Filters\\CustomAuthorizeAttribute.cs",
-              "ToolTip": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\Filters\\CustomAuthorizeAttribute.cs",
-              "RelativeToolTip": "TiktokBackend.API\\Filters\\CustomAuthorizeAttribute.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T09:49:58.902Z"
+              "WhenOpened": "2025-03-19T09:38:26.705Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("914a895f-579d-4426-ad59-4e33e064505b")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("TiktokBackend.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+742f21069026283a1fa7b0213e8c9351b5b84d90")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+002b17718d51db5ad0a36df6f99b6cdb3b02825d")]
 [assembly: System.Reflection.AssemblyProductAttribute("TiktokBackend.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TiktokBackend.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

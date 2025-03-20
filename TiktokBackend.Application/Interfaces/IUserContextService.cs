@@ -4,5 +4,6 @@
     {
         string GetIpAddress();
         string GetUserAgent();
+        string GetDeviceId();
     }
 }

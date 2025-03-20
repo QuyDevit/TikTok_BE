@@ -12,18 +12,20 @@ namespace TiktokBackend.Application.Commands.Auths
     {
         private readonly IUserRepository _userRepository;
         private readonly IEmailService _emailService;
-        private readonly IRedisService _redisService;
+        private readonly IOtpCacheService _otpCache;
         private readonly IEmailTemplateService _emailTemplateService;
-        public RegisterWithOtpCommandHandler(IRedisService redisService, IUserRepository userRepository
+        public RegisterWithOtpCommandHandler(IOtpCacheService redisService, IUserRepository userRepository
             ,IEmailService emailService, IEmailTemplateService emailTemplateService)
         {
             _userRepository = userRepository;
             _emailService = emailService;
-            _redisService = redisService;
+            _otpCache = redisService;
             _emailTemplateService = emailTemplateService;
         }
         public async Task<ServiceResponse<string>> Handle(RegisterWithOtpCommand request, CancellationToken cancellationToken)
         {
+            
+
             var req = request.RequestOtp;
             var validationResult = RegisterRequestValidator.ValidateOtp(req);
             if (!validationResult.Success)
@@ -50,8 +52,8 @@ namespace TiktokBackend.Application.Commands.Auths
                 if (!isSuccess) return ServiceResponse<string>.Fail("Không thể gửi email!");
             }
 
-            string key = $"otp:{req.Type}:{req.Email ?? req.PhoneNumber}";
-            await _redisService.SetAsync(key, otp, 300);
+            string key = $"register:otp:{req.Type}:{req.Email ?? req.PhoneNumber}";
+            await _otpCache.SetAsync(key, otp, 300);
 
             return ServiceResponse<string>.Ok(req.Type == "email" ? "" : otp, "Đã gửi mã xác thực. Vui lòng kiểm tra!");
         }
