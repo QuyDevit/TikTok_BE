@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iOm0h7eE+X5OB/YLGmfWNL35xSRyyh+ME6O28NN7Zds=",
+  "Hash": "1md2Xat+7OG1ZLgcQOS4QZBVw4ajAY0KrnR2Ab01B1k=",
   "Source": "TiktokBackend.API",
   "BasePath": "_content/TiktokBackend.API",
   "Mode": "Default",
@@ -16,6 +16,44 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\wwwroot\\uploads\\images\\posts\\84fcdc91-b2f5-4f19-b264-4dbc3357e8dc",
+      "SourceId": "TiktokBackend.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\wwwroot\\",
+      "BasePath": "_content/TiktokBackend.API",
+      "RelativePath": "uploads/images/posts/84fcdc91-b2f5-4f19-b264-4dbc3357e8dc",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\images\\posts\\84fcdc91-b2f5-4f19-b264-4dbc3357e8dc"
+    },
+    {
+      "Identity": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\wwwroot\\uploads\\images\\users\\1208b744-613e-4a73-9e6d-da8632f4941a.jpeg",
+      "SourceId": "TiktokBackend.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\wwwroot\\",
+      "BasePath": "_content/TiktokBackend.API",
+      "RelativePath": "uploads/images/users/1208b744-613e-4a73-9e6d-da8632f4941a.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\images\\users\\1208b744-613e-4a73-9e6d-da8632f4941a.jpeg"
+    },
     {
       "Identity": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\wwwroot\\uploads\\images\\users\\b16539f7-bac3-440d-905b-9b7e49c796c2.jpeg",
       "SourceId": "TiktokBackend.API",
@@ -91,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\templates\\SendOtpMail.html"
+    },
+    {
+      "Identity": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\wwwroot\\uploads\\videos\\posts\\84fcdc91-b2f5-4f19-b264-4dbc3357e8dc",
+      "SourceId": "TiktokBackend.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\TiktokBackend.API\\TiktokBackend.API\\wwwroot\\",
+      "BasePath": "_content/TiktokBackend.API",
+      "RelativePath": "uploads/videos/posts/84fcdc91-b2f5-4f19-b264-4dbc3357e8dc",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\videos\\posts\\84fcdc91-b2f5-4f19-b264-4dbc3357e8dc"
     }
   ]
 }

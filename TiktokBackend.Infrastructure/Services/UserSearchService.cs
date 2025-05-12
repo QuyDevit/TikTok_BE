@@ -29,11 +29,11 @@ namespace TiktokBackend.Infrastructure.Services
                     .Should(
                         q.Wildcard(m => m
                             .Field(f => f.Nickname)
-                            .Value($"*{keyword}*")
+                            .Value($"*{keyword.ToLower()}*")
                         ),
                         q.Wildcard(m => m
                             .Field(f => f.FullName)
-                            .Value($"*{keyword}*")
+                            .Value($"*{keyword.ToLower()}*")
                         ),
                         q.Fuzzy(m => m
                             .Field(f => f.Nickname)

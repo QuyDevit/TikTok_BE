@@ -21,13 +21,12 @@ namespace TiktokBackend.Application.Commands.Auths
 
         public async Task<ServiceResponse<bool>> Handle(LogoutCommand request, CancellationToken cancellationToken)
         {
+            var refreshToken = _cookieService.GetRefreshToken();
+            if (string.IsNullOrEmpty(refreshToken))
+                return ServiceResponse<bool>.Fail("Đăng xuất thất bại!");
             await _unitOfWork.BeginTransactionAsync();
             try
             {
-                var refreshToken = _cookieService.GetRefreshToken();
-                if (string.IsNullOrEmpty(refreshToken))
-                    return ServiceResponse<bool>.Fail("Đăng xuất thất bại!");
-
                 var result = await _userTokenRepository.RemoveRefreshTokenAsync(request.UserId, refreshToken);
                 if (!result)
                     return ServiceResponse<bool>.Fail("Đăng xuất thất bại!");

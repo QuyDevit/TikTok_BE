@@ -15,6 +15,11 @@ namespace TiktokBackend.Infrastructure.Persistence
         public DbSet<UserRoles> UserRoles { get; set; }
         public DbSet<UserToken> UserTokens { get; set; }
         public DbSet<ApiKey> ApiKeys { get; set; }
+        public DbSet<Follow> Follows { get; set; }
+        public DbSet<Video> Videos { get; set; }
+        public DbSet<VideoMeta> VideoMetas { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<CommentLike> CommentLikes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,6 +38,24 @@ namespace TiktokBackend.Infrastructure.Persistence
             modelBuilder.Entity<ApiKey>()
                 .HasIndex(ut => ut.Key)
                 .HasDatabaseName("IX_ApiKey_Key");
+
+            modelBuilder.Entity<Follow>()
+            .HasKey(f => new { f.FollowerId, f.FolloweeId });
+
+            modelBuilder.Entity<Follow>()
+                .HasOne(f => f.Follower)
+                .WithMany()
+                .HasForeignKey(f => f.FollowerId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Follow>()
+                .HasOne(f => f.Followee)
+                .WithMany()
+                .HasForeignKey(f => f.FolloweeId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<CommentLike>()
+            .HasKey(f => new { f.UserId, f.CommentId });
         }
     }
 }

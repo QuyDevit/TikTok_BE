@@ -8,9 +8,9 @@ D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\TiktokBa
 D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\TiktokBackend.Application.AssemblyInfoInputs.cache
 D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\TiktokBackend.Application.AssemblyInfo.cs
 D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\TiktokBackend.Application.csproj.CoreCompileInputs.cache
+D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\TiktokBackend.Application.sourcelink.json
 D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\TiktokBa.732AAB3F.Up2Date
 D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\TiktokBackend.Application.dll
 D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\refint\TiktokBackend.Application.dll
 D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\TiktokBackend.Application.pdb
 D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\ref\TiktokBackend.Application.dll
-D:\Project\TiktokBackend.API\TiktokBackend.Application\obj\Debug\net8.0\TiktokBackend.Application.sourcelink.json

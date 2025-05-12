@@ -26,14 +26,15 @@ namespace TiktokBackend.Application.Commands.Users
 
         public async Task<ServiceResponse<UserDto>> Handle(UpdateUserNameByIdCommand request, CancellationToken cancellationToken)
         {
+            var isExistNickName = await _userRepository.CheckUserNameByIdAsync(request.UserId, request.Nickname);
+            if (isExistNickName)
+            {
+                return ServiceResponse<UserDto>.Fail("Tiktok Id đã tồn tại!");
+            }
+
             await _unitOfWork.BeginTransactionAsync();
             try
             {
-                var isExistNickName = await _userRepository.CheckUserNameByIdAsync(request.UserId,request.Nickname);
-                if (isExistNickName)
-                {
-                    return ServiceResponse<UserDto>.Fail("Tiktok Id đã tồn tại!");
-                }
                 var user = await _userRepository.UpdateUserNameByIdAsync(request.UserId, request.Nickname);
                 var userDto = _mapper.Map<UserDto>(user);
                 await _userSearchService.UpdateUserAsync(userDto);

@@ -44,38 +44,38 @@ namespace TiktokBackend.Application.Commands.Auths
 
         public async Task<ServiceResponse<bool>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
+            var req = request.Register;
+            var validationResult = RegisterRequestValidator.Validate(req);
+            if (!validationResult.Success)
+                return ServiceResponse<bool>.Fail(validationResult.Message);
+            string key = $"register:otp:{req.Type}:{req.Email ?? req.PhoneNumber}";
+            var storedOtp = await _otpCache.GetAsync(key);
+            if (string.IsNullOrEmpty(storedOtp) || storedOtp != req.VerificationCode)
+                return ServiceResponse<bool>.Fail("Mã xác thực không chính xác.");
+            User newUser;
+            if (req.Type == "email")
+            {
+                newUser = new User
+                {
+                    Email = req.Email,
+                    DateOfBirth = req.DateOfBirth,
+                    Password = req.Password,
+                    EmailVerificationCode = req.VerificationCode
+                };
+
+            }
+            else
+            {
+                newUser = new User
+                {
+                    PhoneNumber = req.PhoneNumber,
+                    DateOfBirth = req.DateOfBirth,
+                    PhoneVerificationCode = req.VerificationCode
+                };
+            }
             await _unitOfWork.BeginTransactionAsync();
             try
             {
-                var req = request.Register;
-                var validationResult = RegisterRequestValidator.Validate(req);
-                if (!validationResult.Success)
-                    return ServiceResponse<bool>.Fail(validationResult.Message);
-                string key = $"register:otp:{req.Type}:{req.Email ?? req.PhoneNumber}";
-                var storedOtp = await _otpCache.GetAsync(key);
-                if (string.IsNullOrEmpty(storedOtp) || storedOtp != req.VerificationCode )
-                    return ServiceResponse<bool>.Fail("Mã xác thực không chính xác.");
-                User newUser;
-                if (req.Type == "email")
-                {
-                    newUser = new User
-                    {
-                        Email = req.Email,
-                        DateOfBirth = req.DateOfBirth,
-                        Password = req.Password,
-                        EmailVerificationCode = req.VerificationCode
-                    };
-
-                }
-                else
-                {
-                    newUser = new User
-                    {
-                        PhoneNumber = req.PhoneNumber,
-                        DateOfBirth = req.DateOfBirth,
-                        PhoneVerificationCode = req.VerificationCode
-                    };
-                }
                 var result = await _userRepository.AddUserAsync(newUser);
                 if (result == null)
                     return ServiceResponse<bool>.Fail("Đăng ký thất bại.");

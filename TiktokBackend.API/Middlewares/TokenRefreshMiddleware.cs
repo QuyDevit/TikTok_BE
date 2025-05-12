@@ -29,6 +29,7 @@ namespace TiktokBackend.API.Middlewares
                 return;
             }
             ClearCookiesAndDenyAccess(context);
+            await _next(context);
         }
 
         private static string GetCookie(HttpContext context, string key) =>
@@ -73,7 +74,6 @@ namespace TiktokBackend.API.Middlewares
         {
             context.Response.Cookies.Delete("accessToken");
             context.Response.Cookies.Delete("refreshToken");
-            context.Response.StatusCode = 401;
         }
     }
 }

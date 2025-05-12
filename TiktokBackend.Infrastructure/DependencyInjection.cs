@@ -24,7 +24,8 @@ namespace TiktokBackend.Infrastructure
             services.AddScoped<IApiKeyRepository, ApiKeyRepository>();      
             services.AddScoped<IUserRoleRepository, UserRoleRepository>();
             services.AddScoped<IUserTokenRepository, UserTokenRepository>();
-
+            services.AddScoped<IVideoRepository, VideoRepository>();
+            services.AddScoped<IVideoMetaRepository, VideoMetaRepository>();
 
             services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
 
@@ -34,6 +35,7 @@ namespace TiktokBackend.Infrastructure
             services.AddScoped<IUserContextService, UserContextService>();
             services.AddScoped<ICookieService, CookieService>();
             services.AddScoped<IUploadFileService, UploadFileService>();
+            services.AddScoped<IVideoMetaService, VideoMetaService>();
             services.AddScoped<IUserSearchService, UserSearchService>();
             services.AddScoped<UserSyncService>();
             services.AddHostedService<ElasticsearchSyncHostedService>();

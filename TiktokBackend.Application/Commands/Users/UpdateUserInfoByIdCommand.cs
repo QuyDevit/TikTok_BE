@@ -32,21 +32,21 @@ namespace TiktokBackend.Application.Commands.Users
 
         public async Task<ServiceResponse<UserDto>> Handle(UpdateUserInfoByIdCommand request, CancellationToken cancellationToken)
         {
+            var rq = request.Data;
+            var isExistNickName = await _userRepository.CheckUserNameByIdAsync(rq.UserId, rq.Nickname);
+            if (isExistNickName)
+            {
+                return ServiceResponse<UserDto>.Fail("Tiktok Id đã tồn tại!");
+            }
+            var avatarUrl = "";
+            if (rq.Avatar != null && rq.Avatar.Length > 0)
+            {
+                string fileName = $"{rq.UserId}.jpeg";
+                avatarUrl = await _uploadFileService.UploadAsync(rq.Avatar, fileName, "images", "users");
+            }
             await _unitOfWork.BeginTransactionAsync();
             try
             {
-                var rq = request.Data;
-                var isExistNickName = await _userRepository.CheckUserNameByIdAsync(rq.UserId,rq.Nickname);
-                if (isExistNickName)
-                {
-                    return ServiceResponse<UserDto>.Fail("Tiktok Id đã tồn tại!");
-                }
-                var avatarUrl = "";
-                if (rq.Avatar != null && rq.Avatar.Length > 0)
-                {
-                    string fileName = $"{rq.UserId}.jpeg";
-                    avatarUrl = await _uploadFileService.UploadAsync(rq.Avatar, fileName);
-                }
                 var user = await _userRepository.UpdateUserProfileByIdAsync(rq.UserId, rq.Nickname,rq.Fullname,rq.Bio, avatarUrl);
                 var userDto = _mapper.Map<UserDto>(user);
                 await _userSearchService.UpdateUserAsync(userDto);

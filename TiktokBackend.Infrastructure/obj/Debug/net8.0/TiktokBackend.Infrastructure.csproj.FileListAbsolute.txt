@@ -11,10 +11,10 @@ D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\Tikto
 D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\TiktokBackend.Infrastructure.AssemblyInfoInputs.cache
 D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\TiktokBackend.Infrastructure.AssemblyInfo.cs
 D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\TiktokBackend.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\TiktokBackend.Infrastructure.sourcelink.json
 D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\TiktokBa.8F585959.Up2Date
 D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\TiktokBackend.Infrastructure.dll
 D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\refint\TiktokBackend.Infrastructure.dll
 D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\TiktokBackend.Infrastructure.pdb
 D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\TiktokBackend.Infrastructure.genruntimeconfig.cache
 D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\ref\TiktokBackend.Infrastructure.dll
-D:\Project\TiktokBackend.API\TiktokBackend.Infrastructure\obj\Debug\net8.0\TiktokBackend.Infrastructure.sourcelink.json
