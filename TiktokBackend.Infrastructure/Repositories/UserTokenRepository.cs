@@ -33,6 +33,7 @@ namespace TiktokBackend.Infrastructure.Repositories
             else
             {
                 findUserToken.RefreshToken = rfToken;
+                findUserToken.DeviceId = deviceId;
             }
         }
 
@@ -48,6 +49,7 @@ namespace TiktokBackend.Infrastructure.Repositories
             }          
             userRefreshToken.RefreshToken = _jwtService.GenerateRefreshToken();
             userRefreshToken.ExpiryDate = DateTime.UtcNow.AddDays(7);
+            userRefreshToken.DeviceId = deviceId;
             return userRefreshToken;
         }
 

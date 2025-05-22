@@ -35,9 +35,9 @@ namespace TiktokBackend.Domain.Entities
 
         public bool Tick { get; set; } = false;
 
-        public int FollowingsCount { get; set; } = 0;
+        public int FollowingsCount { get; set; } = 0; // Số lượng tài khoản đang theo dõi
 
-        public int FollowersCount { get; set; } = 0;
+        public int FollowersCount { get; set; } = 0; // Số lượng tài khoản được theo dõi
 
         public int LikesCount { get; set; } = 0;
 

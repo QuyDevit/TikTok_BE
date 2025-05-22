@@ -14,6 +14,8 @@ namespace TiktokBackend.Domain.Interfaces
         Task<User?> GetUserByNickNameAsync(string nickname);
         Task<User?> GetUserByEmailAsync(string email);
         Task<User?> GetUserByPhoneAsync(string phone);
+        Task<User> UpdateFollowingsCount(Guid userId,bool isFollow);
+        Task<User> UpdateFollowersCount(Guid userId, bool isFollow);
         Task<List<User>> GetListUserByNameAsync(string query);
     }
 }

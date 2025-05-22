@@ -70,7 +70,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseMiddleware<ApiKeyAuthorizationMiddleware>();
-app.UseMiddleware<TokenRefreshMiddleware>();
+app.UseMiddleware<AccessTokenValidationMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();

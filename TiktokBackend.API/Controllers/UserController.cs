@@ -34,7 +34,13 @@ namespace TiktokBackend.API.Controllers
         [HttpGet("")]
         public async Task<IActionResult> GetInfoUserByNickNameAsync(string nickname)
         {
-            var result = await _sender.Send(new GetUserByNickNameQuery(nickname));
+            Guid? userId = null;
+            if (HttpContext.Items.TryGetValue("UserId", out var userIdObj) &&
+                 Guid.TryParse(userIdObj?.ToString(), out var parsedUserId))
+            {
+                userId = parsedUserId;
+            }
+            var result = await _sender.Send(new GetUserByNickNameQuery(nickname, userId));
             return Ok(result);
         }
         [AllowAnonymous]
@@ -42,6 +48,23 @@ namespace TiktokBackend.API.Controllers
         public async Task<IActionResult> SearchInfoUserByKeywordAsync(string q, string type = "less", int page = 1, int loadMore = 0)
         {
             var result = await _sender.Send(new GetListUserByKeywordQuery(q,type,page,loadMore));
+            return Ok(result);
+        }
+        [AllowAnonymous]
+        [HttpGet("suggested")]
+        public async Task<IActionResult> SuggestUserAsync(int page = 1, int per_page = 10)
+        {
+            var result = await _sender.Send(new GetListUserSuggestQuery (page, per_page));
+            return Ok(result);
+        }
+        [HttpPost("follow")]
+        public async Task<IActionResult> FollowAsync([FromBody] UserRequest.FollowUserId request)
+        {
+            if (!HttpContext.Items.TryGetValue("UserId", out var userIdObj) || userIdObj == null || !Guid.TryParse(userIdObj.ToString(), out var userId))
+            {
+                return Unauthorized(new { message = "Không tìm thấy người dùng!" });
+            }
+            var result = await _sender.Send(new FollowUserByIdCommand(userId, request.UserId));
             return Ok(result);
         }
         [HttpPatch("updatename")]

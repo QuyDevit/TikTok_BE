@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TiktokBackend.Domain.Entities;
+﻿using TiktokBackend.Domain.Entities;
 using TiktokBackend.Domain.Interfaces;
 using TiktokBackend.Infrastructure.Persistence;
 
@@ -20,6 +15,22 @@ namespace TiktokBackend.Infrastructure.Repositories
         {
             await _context.Videos.AddAsync(entity);
             return entity;
+        }
+
+        public async Task<int> GetLikeCountFromDbAsync(Guid videoId)
+        {
+            var currentVideo = await _context.Videos.FindAsync(videoId); 
+            return currentVideo != null ? currentVideo.LikesCount : 0;
+        }
+
+        public async Task UpdateLikeCountAsync(Guid videoId, int likeCount)
+        {
+            var currentVideo = await _context.Videos.FindAsync(videoId);
+            if (currentVideo != null)
+            {
+                currentVideo.LikesCount = likeCount;
+            }
+            _context.SaveChanges();
         }
     }
 }

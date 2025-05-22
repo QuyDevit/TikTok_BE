@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Nest;
+using TiktokBackend.Application.Commands.Auths;
 
 namespace TiktokBackend.API.Filters
 {
@@ -17,6 +19,7 @@ namespace TiktokBackend.API.Filters
         {
             if( context.ActionDescriptor.EndpointMetadata.Any(em => em is AllowAnonymousAttribute))
                 return;
+
             var httpContext = context.HttpContext;
             if (!httpContext.Items.TryGetValue("UserId", out var userId) ||
                 !httpContext.Items.TryGetValue("Role", out var role) ||

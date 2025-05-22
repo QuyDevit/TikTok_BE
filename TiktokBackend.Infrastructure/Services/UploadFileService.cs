@@ -17,6 +17,18 @@ namespace TiktokBackend.Infrastructure.Services
             {
                 Directory.CreateDirectory(uploadPath);
             }
+            var extension = Path.GetExtension(fileName);
+            if (string.IsNullOrEmpty(extension))
+            {
+                extension = type.ToLower() switch
+                {
+                    "videos" => ".mp4",
+                    "images" => ".jpeg",
+                    _ => ".jpeg"
+                };
+
+                fileName += extension;
+            }
             var filePath = Path.Combine(uploadPath, fileName);
 
             await File.WriteAllBytesAsync(filePath, fileData);

@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Ignore everything in wwwroot/uploads except the folder itself
+wwwroot/uploads/*
+!wwwroot/uploads/.gitkeep
+
 # User-specific files
 *.rsuser
 *.suo

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác thực OTP Đăng ký</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
+    <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+            <td align="center">
+                <table width="600" bgcolor="#ffffff" cellpadding="20" cellspacing="0" border="0" style="border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                    <tr>
+                        <td align="center" style="padding-bottom: 20px;">
+                            <h1 style="color: #333333; font-size: 24px; margin: 0;">Chào bạn!</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-size: 16px; color: #555555; line-height: 1.5;">
+                            <p>Chúng tôi đã nhận được yêu cầu đăng ký tài khoản của bạn. Vui lòng sử dụng mã OTP dưới đây để xác thực đăng ký của bạn.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-size: 32px; font-weight: bold; color: #4CAF50; padding: 20px 0;">
+                            {{OTP_CODE}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-size: 16px; color: #555555; line-height: 1.5;">
+                            <p>Đây là mã OTP của bạn. Mã OTP này có hiệu lực trong 5 phút.</p>
+                            <p>Nếu bạn không yêu cầu mã OTP này, vui lòng bỏ qua email này.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-size: 14px; color: #777777; padding-top: 30px;">
+                            <p style="text-align: center;">Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

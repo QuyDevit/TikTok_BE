@@ -12,7 +12,7 @@ namespace TiktokBackend.Application.Validators
 {
     public class VideoRequestValidator
     {
-        public static ServiceResponse<bool> Validate(PostVideoRequest request)
+        public static ServiceResponse<bool> Validate(VideoRequest.CreateVideo request)
         {
             if (request.Video == null)
             {

@@ -17,14 +17,9 @@ namespace TiktokBackend.Application.Queries.Users
         public async Task<PagedResponse<UserDto>> Handle(GetListUserByKeywordQuery request, CancellationToken cancellationToken)
         {
             int pageSize = request.Type == "less" ? 5 : 10;
-            int skip = (request.Page - 1) * pageSize;
+            var (users, totalRecords) = await _userSearchService.SearchUsersAsync(request.Keyword,request.Page,pageSize);
 
-            var users = await _userSearchService.SearchUsersAsync(request.Keyword);
-
-            var pagedUsers = users.Skip(skip).Take(pageSize).ToList();
-            int totalRecords = users.Count;
-
-            return PagedResponse<UserDto>.Create(pagedUsers, request.Page, pageSize, totalRecords);
+            return PagedResponse<UserDto>.Create(users, request.Page, pageSize, (int)totalRecords);
         }
     }
 }

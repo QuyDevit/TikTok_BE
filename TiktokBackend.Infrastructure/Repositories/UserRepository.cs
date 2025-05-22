@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Nest;
 using TiktokBackend.Domain.Entities;
 using TiktokBackend.Domain.Interfaces;
 using TiktokBackend.Infrastructure.Persistence;
@@ -126,6 +127,29 @@ namespace TiktokBackend.Infrastructure.Repositories
             {
                 result.Avatar = avatar;
             }
+            return result;
+        }
+
+        public async Task<User> UpdateFollowingsCount(Guid userId,bool isFollow)
+        {
+            var result = await _context.Users.FindAsync(userId);
+            if (result == null)
+            {
+                throw new ArgumentException("User not found.");
+            }
+            result.FollowingsCount += isFollow ? 1 : -1;
+            return result;
+        }
+
+        public async Task<User> UpdateFollowersCount(Guid userId, bool isFollow)
+        {
+            var result = await _context.Users.FindAsync(userId);
+            if (result == null)
+            {
+                throw new ArgumentException("User not found.");
+            }
+            result.FollowersCount += isFollow ? 1 : -1;
+
             return result;
         }
     }

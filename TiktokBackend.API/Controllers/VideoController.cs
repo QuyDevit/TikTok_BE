@@ -1,9 +1,13 @@
 ﻿
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TiktokBackend.API.Filters;
 using TiktokBackend.Application.Commands.Videos;
 using TiktokBackend.Application.Payloads;
+using TiktokBackend.Application.Queries.Users;
+using TiktokBackend.Application.Queries.Videos;
+using static TiktokBackend.Application.Payloads.VideoRequest;
 
 namespace TiktokBackend.API.Controllers
 {
@@ -17,10 +21,39 @@ namespace TiktokBackend.API.Controllers
         {
             _sender = sender;
         }
-
+        [AllowAnonymous]
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchVideosByKeywordAsync(string q, string type = "less", int page = 1, int loadMore = 0)
+        {
+            var result = await _sender.Send(new GetListVideoByKeywordQuery(q, type, page, loadMore));
+            return Ok(result);
+        }
+        [AllowAnonymous]
+        [HttpGet("list")]
+        public async Task<IActionResult> GetVideosAsync(string type = "for-you", int page = 1, int loadMore = 0)
+        {
+            Guid? userId = null;
+            if (HttpContext.Items.TryGetValue("UserId", out var userIdObj) &&
+                 Guid.TryParse(userIdObj?.ToString(), out var parsedUserId))
+            {
+                userId = parsedUserId;
+            }
+            var result = await _sender.Send(new GetListVideoQuery(type, page, loadMore, userId));
+            return Ok(result);
+        }
+        [HttpPost("like")]
+        public async Task<IActionResult> LikeVideoByIdAsync([FromBody] VideoRequest.LikeVideoId rq)
+        {
+            if (!HttpContext.Items.TryGetValue("UserId", out var userIdObj) || userIdObj == null || !Guid.TryParse(userIdObj.ToString(), out var userId))
+            {
+                return Unauthorized(new { message = "Không tìm thấy người dùng!" });
+            }
+            var result = await _sender.Send(new LikeVideoCommand(rq.VideoId, userId));
+            return Ok(result);
+        }
         [HttpPost("upload")]
         [RequestFormLimits(MultipartBodyLengthLimit = 524288000)]
-        public async Task<IActionResult> UploadVideo([FromForm] List <IFormFile> files, [FromForm] string description, [FromForm] string viewable, [FromForm] string[] allows)
+        public async Task<IActionResult> UploadVideoAsync([FromForm] List <IFormFile> files, [FromForm] string description, [FromForm] string viewable, [FromForm] string[] allows)
         {
             if (!HttpContext.Items.TryGetValue("UserId", out var userIdObj) || userIdObj == null || !Guid.TryParse(userIdObj.ToString(), out var userId))
             {
@@ -46,7 +79,7 @@ namespace TiktokBackend.API.Controllers
                     thumbBytes = memoryStream.ToArray();
                 }
             }
-            PostVideoRequest videoRequest = new PostVideoRequest
+            VideoRequest.CreateVideo videoRequest = new VideoRequest.CreateVideo
             {
                 UserId = userId,
                 Allows = allows,

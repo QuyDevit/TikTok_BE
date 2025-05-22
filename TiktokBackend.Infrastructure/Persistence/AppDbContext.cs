@@ -20,6 +20,7 @@ namespace TiktokBackend.Infrastructure.Persistence
         public DbSet<VideoMeta> VideoMetas { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<CommentLike> CommentLikes { get; set; }
+        public DbSet<VideoLike> VideoLikes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -56,6 +57,9 @@ namespace TiktokBackend.Infrastructure.Persistence
 
             modelBuilder.Entity<CommentLike>()
             .HasKey(f => new { f.UserId, f.CommentId });
+
+            modelBuilder.Entity<VideoLike>()
+            .HasKey(f => new { f.UserId, f.VideoId });
         }
     }
 }

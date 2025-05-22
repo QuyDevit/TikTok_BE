@@ -43,6 +43,7 @@ namespace TiktokBackend.Application.Commands.Users
             {
                 string fileName = $"{rq.UserId}.jpeg";
                 avatarUrl = await _uploadFileService.UploadAsync(rq.Avatar, fileName, "images", "users");
+                avatarUrl += "?v=" + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
             }
             await _unitOfWork.BeginTransactionAsync();
             try

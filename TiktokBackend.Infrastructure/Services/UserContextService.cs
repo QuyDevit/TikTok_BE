@@ -24,18 +24,23 @@ namespace TiktokBackend.Infrastructure.Services
         }
         public string GetDeviceId()
         {
-            var userAgent = GetUserAgent();
-            var ipAddress = GetIpAddress();
-            var acceptLanguage = _httpContextAccessor.HttpContext?.Request.Headers["Accept-Language"].ToString() ?? "Unknown";
-            var timeZone = _httpContextAccessor.HttpContext?.Request.Headers["Sec-Ch-Ua-Timezone"].ToString() ?? "Unknown";
+            var context = _httpContextAccessor.HttpContext;
+            var cookieKey = "deviceId";
 
-            string rawData = $"{userAgent}|{ipAddress}|{acceptLanguage}|{timeZone}";
+            if (context.Request.Cookies.TryGetValue(cookieKey, out var existingDeviceId))
+                return existingDeviceId;
 
-            using (SHA256 sha256 = SHA256.Create())
+            var newDeviceId = Guid.NewGuid().ToString("N");
+            context.Response.Cookies.Append(cookieKey, newDeviceId, new CookieOptions
             {
-                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(rawData));
-                return BitConverter.ToString(bytes).Replace("-", "").ToLower();
-            }
+                HttpOnly = true,
+                Expires = DateTime.UtcNow.AddYears(1), 
+                Secure = true,
+                SameSite = SameSiteMode.None
+            });
+
+            return newDeviceId;
         }
+
     }
 }

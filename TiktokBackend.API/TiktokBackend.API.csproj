@@ -26,10 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\uploads\images\posts\" />
     <Folder Include="wwwroot\uploads\images\users\" />
-    <Folder Include="wwwroot\uploads\videos\" />
-    <Folder Include="wwwroot\uploads\videos\posts\" />
   </ItemGroup>
 
 </Project>

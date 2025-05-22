@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Nest;
 using TiktokBackend.Application.Interfaces;
 
 namespace TiktokBackend.Infrastructure.Services
@@ -15,6 +16,7 @@ namespace TiktokBackend.Infrastructure.Services
         {
             _contextAccessor.HttpContext?.Response.Cookies.Delete("accessToken");
             _contextAccessor.HttpContext?.Response.Cookies.Delete("refreshToken");
+            _contextAccessor.HttpContext?.Response.Cookies.Delete("deviceId");
         }
 
         public string? GetRefreshToken()

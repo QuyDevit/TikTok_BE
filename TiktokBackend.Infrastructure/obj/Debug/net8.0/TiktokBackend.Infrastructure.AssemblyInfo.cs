@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TiktokBackend.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3285c713f1498aef2cfc23e2326df0198e94545")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2b96f4e8c36c029fc8e57b511e3cd491a039935")]
 [assembly: System.Reflection.AssemblyProductAttribute("TiktokBackend.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TiktokBackend.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

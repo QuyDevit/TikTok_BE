@@ -16,8 +16,9 @@ namespace TiktokBackend.Infrastructure.Services
         {
             using (var scope = _serviceProvider.CreateScope())
             {
-                var syncService = scope.ServiceProvider.GetRequiredService<UserSyncService>();
-                await syncService.SyncUsersToElasticsearch();
+                var syncService = scope.ServiceProvider.GetRequiredService<DataSyncService>();
+                await syncService.SyncUsersAsync();
+                await syncService.SyncVideosAsync();
             }
         }
 

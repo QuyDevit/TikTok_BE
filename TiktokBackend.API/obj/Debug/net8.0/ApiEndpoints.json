@@ -59,6 +59,16 @@
   },
   {
     "ContainingType": "TiktokBackend.API.Controllers.AuthController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/Auth/refreshtoken",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.AuthController",
     "Method": "RegisterWithOtpAsync",
     "RelativePath": "api/Auth/register/otp",
     "HttpMethod": "POST",
@@ -107,6 +117,22 @@
   },
   {
     "ContainingType": "TiktokBackend.API.Controllers.UserController",
+    "Method": "FollowAsync",
+    "RelativePath": "api/User/follow",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TiktokBackend.Application.Payloads.UserRequest\u002BFollowUserId",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.UserController",
     "Method": "GetInfoUserAsync",
     "RelativePath": "api/User/me",
     "HttpMethod": "GET",
@@ -140,6 +166,27 @@
       },
       {
         "Name": "loadMore",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.UserController",
+    "Method": "SuggestUserAsync",
+    "RelativePath": "api/User/suggested",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "per_page",
         "Type": "System.Int32",
         "IsRequired": false
       }
@@ -220,7 +267,80 @@
   },
   {
     "ContainingType": "TiktokBackend.API.Controllers.VideoController",
-    "Method": "UploadVideo",
+    "Method": "LikeVideoByIdAsync",
+    "RelativePath": "api/Video/like",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rq",
+        "Type": "TiktokBackend.Application.Payloads.VideoRequest\u002BLikeVideoId",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.VideoController",
+    "Method": "GetVideosAsync",
+    "RelativePath": "api/Video/list",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "type",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "loadMore",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.VideoController",
+    "Method": "SearchVideosByKeywordAsync",
+    "RelativePath": "api/Video/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "q",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "type",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "loadMore",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TiktokBackend.API.Controllers.VideoController",
+    "Method": "UploadVideoAsync",
     "RelativePath": "api/Video/upload",
     "HttpMethod": "POST",
     "IsController": true,

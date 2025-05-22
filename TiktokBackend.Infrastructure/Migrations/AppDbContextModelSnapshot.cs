@@ -390,6 +390,22 @@ namespace TiktokBackend.Infrastructure.Migrations
                     b.ToTable("Videos");
                 });
 
+            modelBuilder.Entity("TiktokBackend.Domain.Entities.VideoLike", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("VideoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("LikedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("UserId", "VideoId");
+
+                    b.ToTable("VideoLikes");
+                });
+
             modelBuilder.Entity("TiktokBackend.Domain.Entities.VideoMeta", b =>
                 {
                     b.Property<Guid>("VideoId")
