@@ -3,10 +3,11 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-# Ignore everything in wwwroot/uploads except the folder itself
-wwwroot/uploads/*
-!wwwroot/uploads/.gitkeep
-
+# Ignore files in uploads, but keep folder
+TiktokBackend.API/ffmpeg.exe
+TiktokBackend.API/ffprobe.exe
+TiktokBackend.API/wwwroot/uploads/*
+!TiktokBackend.API/wwwroot/uploads/.gitkeep
 # User-specific files
 *.rsuser
 *.suo
